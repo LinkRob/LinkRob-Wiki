@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Twilight Princess - LinkRob Wiki</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Twilight Princess</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="ocarina.html">Ocarina of Time</a></li>
+        <li><a href="breath.html">Breath of the Wild</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <p>Twilight Princess explore les ténèbres et la lumière. Retrouvez des guides sur les donjons, les boss et l’histoire de Hyrule.</p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 LinkRob Wiki</p>
+  </footer>
+</body>
+</html>
