@@ -1,1 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Breath of the Wild - LinkRob Wiki</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Breath of the Wild</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="ocarina.html">Ocarina of Time</a></li>
+        <li><a href="twilight.html">Twilight Princess</a></li>
+      </ul>
+    </nav>
+  </header>
 
+  <main>
+    <p>Breath of the Wild est le jeu Zelda le plus vaste et immersif. Découvrez cartes, quêtes, et astuces pour chaque région d’Hyrule.</p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 LinkRob Wiki</p>
+  </footer>
+</body>
+</html>
