@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ocarina of Time - LinkRob Wiki</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Ocarina of Time</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="ocarina.html">Ocarina of Time</a></li>
+        <li><a href="breath.html">Breath of the Wild</a></li>
+        <li><a href="twilight.html">Twilight Princess</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Introduction</h2>
+      <p>Page dédiée à Zelda: Ocarina of Time.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 LinkRob Wiki</p>
+  </footer>
+</body>
+</html>
