@@ -11,7 +11,6 @@
     <nav>
       <ul>
         <li><a href="index.html">Accueil</a></li>
-        <li><a href="ocarina.html">Ocarina of Time</a></li>
         <li><a href="breath.html">Breath of the Wild</a></li>
         <li><a href="twilight.html">Twilight Princess</a></li>
       </ul>
@@ -19,14 +18,11 @@
   </header>
 
   <main>
-    <section>
-      <h2>Introduction</h2>
-      <p>Page dédiée à Zelda: Ocarina of Time.</p>
-    </section>
+    <p>Ocarina of Time est un jeu emblématique de la saga Zelda sorti sur Nintendo 64. Retrouvez ici tous les guides, astuces et informations sur le jeu.</p>
   </main>
 
   <footer>
-    <p>© 2025 LinkRob Wiki</p>
+    <p>&copy; 2025 LinkRob Wiki</p>
   </footer>
 </body>
 </html>
