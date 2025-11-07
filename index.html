@@ -12,21 +12,26 @@
 <body>
   <!-- Barre latérale -->
   <div id="sidebar">
+    <div class="sidebar-header">
+      <h2>LinkRob Wiki</h2>
+    </div>
     <ul>
       <li><a href="#" class="sidebar-link" data-page="Accueil">Accueil</a></li>
       <li><a href="#" class="sidebar-link" data-page="Jeux">Jeux</a></li>
       <li><a href="#" class="sidebar-link" data-page="Objets">Objets</a></li>
       <li><a href="#" class="sidebar-link" data-page="Soluce">Soluce</a></li>
       <li><a href="#" class="sidebar-link" data-page="Règlement">Règlement</a></li>
+      <li><a href="https://discord.gg/Q6kmbXamN3" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Discord_logo.svg" alt="Discord" class="icon"> Rejoindre Discord</a></li>
+      <li><a href="https://www.youtube.com/channel/UCZu8OUQjwGfIT_ialw_LtsA" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_(2017).svg" alt="YouTube" class="icon"> Chaîne YouTube</a></li>
     </ul>
   </div>
 
-  <!-- Logo pour ouvrir la sidebar -->
+  <!-- Logo menu -->
   <div id="menu-logo">
     <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Zelda_Logo.svg" alt="LinkRob Wiki" id="logo">
   </div>
 
-  <!-- Top bar avec recherche et crayon -->
+  <!-- Top bar -->
   <div id="top-bar">
     <input type="text" id="search-input" placeholder="Rechercher une page...">
     <button id="search-btn">🔍</button>
@@ -39,7 +44,7 @@
     <h1>Bienvenue sur LinkRob Wiki !</h1>
     <div id="dynamic-content"></div>
 
-    <!-- Création / modification page -->
+    <!-- Éditeur -->
     <div id="editor" style="display:none;">
       <input type="text" id="page-title" placeholder="Titre de la page">
       <textarea id="page-content" placeholder="Écrivez votre contenu ici..." rows="10"></textarea>
