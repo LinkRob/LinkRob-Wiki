@@ -6,31 +6,66 @@
   <title>LinkRob Wiki</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="light-mode">
-  <!-- Logo cliquable pour ouvrir la barre latérale -->
-  <div class="logo-container">
-    <img src="https://static.wikia.nocookie.net/zeldawikidelinkrob/images/e/e6/Site-logo.png/revision/latest?cb=20250817120015" 
-         alt="Logo LinkRob Wiki" class="logo" id="logoButton">
+<body class="theme-dark">
+
+  <!-- Logo / bouton pour ouvrir la barre latérale -->
+  <div id="logo-container">
+    <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/3/37/Zelda_logo.png" alt="Logo LinkRob Wiki">
   </div>
 
   <!-- Barre latérale -->
-  <aside class="sidebar" id="sidebar">
-    <nav>
-      <ul>
-        <li><a href="#" class="menu-link active" data-section="accueil">Accueil</a></li>
-        <li><a href="#" class="menu-link" data-section="test">Test publications</a></li>
-        <li><a href="#" class="menu-link" data-section="jeux">Jeux</a></li>
-        <li><a href="#" class="menu-link" data-section="reglement">Règlement</a></li>
-        <li><a href="#" class="menu-link" data-section="objets">Objets</a></li>
-        <li><a href="#" class="menu-link" data-section="soluce">Soluce</a></li>
-      </ul>
-    </nav>
-  </aside>
+  <div id="sidebar">
+    <ul>
+      <li><span class="edit-icon">✏️</span> <a href="#" onclick="showSection('accueil')">Accueil</a></li>
+      <li><span class="edit-icon">✏️</span> <a href="#" onclick="showSection('test')">Test publications</a></li>
+      <li><span class="edit-icon">✏️</span> <a href="#" onclick="showSection('jeux')">Jeux</a></li>
+      <li><span class="edit-icon">✏️</span> <a href="#" onclick="showSection('reglement')">Règlement</a></li>
+      <li><span class="edit-icon">✏️</span> <a href="#" onclick="showSection('objets')">Objets</a></li>
+      <li><span class="edit-icon">✏️</span> <a href="#" onclick="showSection('soluce')">Soluce</a></li>
+    </ul>
+    <button id="toggle-theme">Changer thème</button>
+  </div>
 
-  <!-- Contenu principal dynamique -->
-  <main class="content" id="mainContent">
-    <!-- Contenu chargé via JS -->
-  </main>
+  <!-- Contenu principal -->
+  <div id="content">
+    <div id="accueil" class="section">
+      <h1>Bienvenue sur LinkRob Wiki !</h1>
+      <p>Le guide ultime de la saga Zelda.</p>
+      <p>
+        <a href="https://discord.gg/Q6kmbXamN3" target="_blank">
+          <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/9/98/Discord_logo.svg" alt="Discord Logo"> Rejoins notre Discord
+        </a> |
+        <a href="https://www.youtube.com/channel/UCZu8OUQjwGfIT_ialw_LtsA" target="_blank">
+          <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube Logo"> Chaîne YouTube
+        </a>
+      </p>
+    </div>
+
+    <div id="test" class="section" style="display:none;">
+      <h2>Test publications</h2>
+      <p>Zone de test pour les utilisateurs.</p>
+    </div>
+
+    <div id="jeux" class="section" style="display:none;">
+      <h2>Jeux</h2>
+      <p>Accès aux jeux Zelda.</p>
+    </div>
+
+    <div id="reglement" class="section" style="display:none;">
+      <h2>Règlement</h2>
+      <p>Contenu réservé à l’admin pour modifier.</p>
+    </div>
+
+    <div id="objets" class="section" style="display:none;">
+      <h2>Objets</h2>
+      <p>Liste des objets de la saga Zelda.</p>
+    </div>
+
+    <div id="soluce" class="section" style="display:none;">
+      <h2>Solutions</h2>
+      <p>Guides et astuces.</p>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
