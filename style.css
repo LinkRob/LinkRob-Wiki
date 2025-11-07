@@ -1,14 +1,15 @@
 /* BODY */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3ZDIaUrACmhoYMVFfkzjeqC7xpXxgG_3wBQ&s'); /* fond sombre par défaut */
+  font-family: 'Verdana', sans-serif;
+  background-image: url('https://images.unsplash.com/photo-1589830918436-556c879ff231?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8emVsZGElMjBsaWdodHxlbnwwfHwwfHw&ixlib=rb-4.0.3&q=80&w=1080');
   background-size: cover;
   background-position: center;
-  transition: background-image 0.5s;
+  color: white;
+  transition: background-image 0.5s, color 0.5s;
 }
 
-/* MENU LOGO */
+/* LOGO MENU */
 #menu-logo {
   position: fixed;
   top: 10px;
@@ -29,7 +30,7 @@ body {
   width: 250px;
   position: fixed;
   top: 0;
-  left: -250px; /* cachée au départ */
+  left: -250px; 
   background-color: rgba(0, 0, 0, 0.85);
   overflow-x: hidden;
   transition: 0.3s;
@@ -58,11 +59,30 @@ body {
   border-radius: 5px;
 }
 
+/* TOP BAR */
+#top-bar {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  z-index: 1002;
+}
+
+#top-bar input {
+  padding: 5px 10px;
+  font-size: 16px;
+}
+
+#top-bar button {
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
 /* CONTENU PRINCIPAL */
 #main-content {
   margin-left: 20px;
   padding: 20px;
-  color: white;
   text-align: center;
 }
 
@@ -101,8 +121,33 @@ body {
   object-fit: contain;
 }
 
-/* MODE SOMBRE / CLAIR */
-body.light-mode {
-  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcrscNc2FDl6ijPDt12YkJiw1ika3elg1WUA&s');
-  color: black;
+/* ZONE DE CREATION DE PAGE */
+#new-page {
+  margin-top: 40px;
+}
+
+#new-page input, #new-page textarea {
+  width: 80%;
+  max-width: 600px;
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#new-page button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* DYNAMIC CONTENT */
+#dynamic-content {
+  margin-top: 40px;
+  text-align: left;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
