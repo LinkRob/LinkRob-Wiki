@@ -1,24 +1,31 @@
 body {
   margin: 0;
   font-family: 'Verdana', sans-serif;
+  color: white;
   background-image: url('https://images.unsplash.com/photo-1589830918436-556c879ff231?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080');
   background-size: cover;
   background-position: center;
-  color: white;
   transition: background-image 0.5s, color 0.5s;
 }
 
-/* Barre latérale */
+/* Sidebar */
 #sidebar {
   height: 100%;
   width: 250px;
   position: fixed;
   top: 0;
   left: -250px;
-  background-color: rgba(0,0,0,0.85);
+  background-color: rgba(0,0,0,0.9);
   padding-top: 60px;
   transition: 0.3s;
   z-index: 1000;
+}
+
+#sidebar .sidebar-header {
+  text-align: center;
+  font-size: 24px;
+  padding: 10px;
+  border-bottom: 2px solid gold;
 }
 
 #sidebar ul {
@@ -33,13 +40,20 @@ body {
 #sidebar ul li a {
   color: white;
   text-decoration: none;
-  display: block;
+  display: flex;
+  align-items: center;
   font-size: 18px;
 }
 
 #sidebar ul li a:hover {
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255,215,0,0.2);
   border-radius: 5px;
+}
+
+#sidebar .icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
 }
 
 /* Logo menu */
@@ -71,7 +85,7 @@ body {
   cursor: pointer;
 }
 
-/* Contenu principal */
+/* Main content */
 #main-content {
   margin-left: 20px;
   padding: 20px;
@@ -91,7 +105,7 @@ body {
   cursor: pointer;
 }
 
-/* Mode clair */
+/* Theme clair */
 .light-mode {
   color: black;
   background-image: url('https://images.unsplash.com/photo-1592322833315-84aab7c80d42?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080');
