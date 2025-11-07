@@ -1,9 +1,11 @@
+/* Fond d'écran et police */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3ZDIaUrACmhoYMVFfkzjeqC7xpXxgG_3wBQ&s"); /* thème sombre par défaut */
+  background-image: url("https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1950&q=80"); /* thème sombre amélioré */
   background-size: cover;
   background-position: center;
+  transition: background-image 0.5s ease;
 }
 
 /* Barre latérale */
@@ -14,16 +16,16 @@ body {
   z-index: 1000;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: rgba(17,17,17,0.95);
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
 }
 
 .sidebar a {
-  padding: 10px 15px;
+  padding: 10px 20px;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 20px;
   color: #f1f1f1;
   display: block;
   transition: 0.3s;
@@ -37,17 +39,52 @@ body {
   position: absolute;
   top: 10px;
   right: 25px;
-  font-size: 30px;
+  font-size: 36px;
+  color: white;
 }
 
 /* Logo */
 #logo {
   cursor: pointer;
   width: 100px;
-  margin: 10px;
+  margin: 20px;
 }
 
 /* Contenu principal */
 #main {
   margin-left: 20px;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px; /* proche du haut */
+}
+
+.buttons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background-color: rgba(255,255,255,0.9);
+  color: #000;
+  font-size: 22px;
+  padding: 15px 25px;
+  margin: 15px;
+  border-radius: 10px;
+  width: 300px;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.buttons a:hover {
+  transform: scale(1.05);
+  background-color: rgba(255,255,255,1);
+}
+
+.icon {
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
 }
