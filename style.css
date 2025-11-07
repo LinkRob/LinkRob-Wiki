@@ -1,133 +1,133 @@
-/* Général */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    transition: background 0.5s, color 0.5s;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+  background: url('https://images.unsplash.com/photo-1612036782180-53cf0b7d8e26') no-repeat center center fixed;
+  background-size: cover;
+  transition: background 0.5s ease;
 }
 
-/* Mode clair / sombre */
 body.light {
-    background: url('https://i.imgur.com/7jHfRzN.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #000;
-}
-body.dark {
-    background: url('https://i.imgur.com/3Lz7fE5.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #fff;
+  color: #222;
+  background: url('https://images.unsplash.com/photo-1606112219348-204d7d8b94ee') no-repeat center center fixed;
+  background-size: cover;
 }
 
-/* Barre latérale */
-.sidebar {
-    width: 250px;
-    position: fixed;
-    top: 0;
-    left: -250px;
-    height: 100%;
-    background: rgba(0,0,0,0.85);
-    overflow-x: hidden;
-    transition: 0.3s;
-    z-index: 1000;
-    color: #fff;
-}
-.sidebar.open {
-    left: 0;
-}
-.sidebar-header {
-    text-align: center;
-    padding: 20px;
-}
-.sidebar-header img {
-    max-width: 120px;
-}
-.sidebar-menu {
-    list-style: none;
-    padding: 0;
-}
-.sidebar-menu li {
-    padding: 15px 20px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-.sidebar-menu li:hover {
-    background: rgba(255,255,255,0.1);
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(0,0,0,0.6);
+  padding: 10px 20px;
 }
 
-/* Bouton menu */
-#menuBtn {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    cursor: pointer;
-    z-index: 1100;
-}
-#menuBtn img {
-    width: 60px;
+#menu-logo {
+  width: 50px;
+  cursor: pointer;
+  filter: drop-shadow(0 0 5px gold);
 }
 
-/* Contenu principal */
-.main-content {
-    margin-left: 0;
-    padding: 20px;
-    transition: margin-left 0.3s;
-}
-.main-content.shifted {
-    margin-left: 250px;
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-/* Barre de recherche et édition */
-.top-bar {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-.top-bar input[type="text"] {
-    padding: 5px;
-    font-size: 16px;
-}
-.top-bar img {
-    width: 32px;
-    cursor: pointer;
+#searchBar {
+  padding: 6px;
+  border-radius: 5px;
+  border: none;
 }
 
-/* Liens Discord/YouTube */
-.links a {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin-right: 20px;
-    font-weight: bold;
-    text-decoration: none;
-    color: inherit;
-    padding: 10px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 8px;
-}
-.links img {
-    width: 32px;
-    vertical-align: middle;
+#createPageBtn {
+  font-size: 18px;
+  background: gold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-/* Textarea pour édition */
-textarea {
-    width: 100%;
-    height: 300px;
-    border: 2px solid #555;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 16px;
-    background: rgba(255,255,255,0.1);
-    color: inherit;
-    resize: vertical;
+#sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 220px;
+  background: rgba(0,0,0,0.8);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  padding-top: 60px;
 }
-button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    background-color: #0077ff;
-    color: #fff;
+
+#sidebar.visible {
+  transform: translateX(0);
+}
+
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+#sidebar li {
+  padding: 15px;
+  text-align: center;
+}
+
+#sidebar a {
+  color: gold;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+main {
+  padding: 40px;
+  text-align: center;
+}
+
+.welcome {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 800px;
+  margin: auto;
+  border: 2px solid gold;
+}
+
+.social-links {
+  margin-top: 20px;
+}
+
+.icon {
+  width: 80px;
+  margin: 10px;
+  filter: drop-shadow(0 0 5px black);
+}
+
+#editor {
+  background: rgba(0,0,0,0.6);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+#pageTitle, #pageContent {
+  width: 80%;
+  margin: 10px auto;
+  display: block;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+}
+
+#pageContent {
+  height: 200px;
+}
+
+#savePageBtn {
+  background: gold;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
 }
