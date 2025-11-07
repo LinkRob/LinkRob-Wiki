@@ -1,4 +1,4 @@
-// Firebase config (remplace par ton config Firebase)
+// Firebase config
 const firebaseConfig = {
   apiKey: "VOTRE_API_KEY",
   authDomain: "VOTRE_PROJECT_ID.firebaseapp.com",
@@ -10,63 +10,75 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
+const storage = firebase.storage();
 
-// Toggle barre latérale
+// Sidebar toggle
 const sidebar = document.getElementById("sidebar");
-const logo = document.getElementById("logo");
-logo.addEventListener("click", () => {
+document.getElementById("logo").addEventListener("click", () => {
   sidebar.style.left = sidebar.style.left === "0px" ? "-250px" : "0px";
 });
 
-// Recherche de pages
+// Theme toggle
+let darkMode = true;
+document.getElementById("theme-toggle").addEventListener("click", () => {
+  darkMode = !darkMode;
+  document.body.classList.toggle("light-mode", !darkMode);
+});
+
+// Search page
 const searchInput = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-btn");
-const newPageDiv = document.getElementById("new-page");
+const editor = document.getElementById("editor");
 const dynamicContent = document.getElementById("dynamic-content");
 
 searchBtn.addEventListener("click", () => {
   const query = searchInput.value.trim();
   if (!query) return;
-  const pageRef = db.ref("pages/" + query);
-  pageRef.get().then((snapshot) => {
+  db.ref("pages/" + query).get().then((snapshot) => {
     if (snapshot.exists()) {
-      dynamicContent.innerHTML = `<h2>${query}</h2><p>${snapshot.val()}</p>`;
+      dynamicContent.innerHTML = `<h2>${query}</h2><p>${snapshot.val().content}</p>`;
     } else {
-      newPageDiv.style.display = "block";
-      document.getElementById("new-page-title").value = query;
+      editor.style.display = "block";
+      document.getElementById("page-title").value = query;
     }
   });
 });
 
-// Créer/modifier page
-document.getElementById("create-page-btn").addEventListener("click", () => {
-  const title = document.getElementById("new-page-title").value.trim();
-  const content = document.getElementById("new-page-content").value.trim();
-  if (!title || !content) { alert("Remplissez tout !"); return; }
-  db.ref("pages/" + title).set(content);
-  dynamicContent.innerHTML = `<h2>${title}</h2><p>${content}</p>`;
-  newPageDiv.style.display = "none";
-  document.getElementById("new-page-title").value = "";
-  document.getElementById("new-page-content").value = "";
+// Open editor
+document.getElementById("create-btn").addEventListener("click", () => {
+  editor.style.display = "block";
 });
 
-// Sidebar links
+// Save page & image
+document.getElementById("save-btn").addEventListener("click", () => {
+  const title = document.getElementById("page-title").value.trim();
+  const content = document.getElementById("page-content").value.trim();
+  const imageFile = document.getElementById("image-upload").files[0];
+  const imageName = document.getElementById("image-name").value.trim();
+
+  if (!title || !content) { alert("Remplissez titre et contenu !"); return; }
+
+  if (imageFile && imageName) {
+    const storageRef = storage.ref("images/" + imageName);
+    storageRef.put(imageFile).then(() => {
+      storageRef.getDownloadURL().then(url => {
+        db.ref("pages/" + title).set({content, image: url});
+        dynamicContent.innerHTML = `<h2>${title}</h2><p>${content}</p><img src="${url}" style="max-width:400px;">`;
+        editor.style.display = "none";
+      });
+    });
+  } else {
+    db.ref("pages/" + title).set({content});
+    dynamicContent.innerHTML = `<h2>${title}</h2><p>${content}</p>`;
+    editor.style.display = "none";
+  }
+});
+
+// Sidebar navigation
 document.querySelectorAll(".sidebar-link").forEach(link => {
-  link.addEventListener("click", (e) => {
+  link.addEventListener("click", e => {
     e.preventDefault();
-    const page = link.dataset.page;
-    searchInput.value = page;
+    searchInput.value = link.dataset.page;
     searchBtn.click();
   });
-});
-
-// Mode clair/sombre Zelda
-const themeBtn = document.getElementById("theme-toggle");
-let darkMode = true;
-themeBtn.addEventListener("click", () => {
-  darkMode = !darkMode;
-  document.body.style.backgroundImage = darkMode 
-    ? "url('https://images.unsplash.com/photo-1589830918436-556c879ff231?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8emVsZGElMjBsaWdodHxlbnwwfHwwfHw&ixlib=rb-4.0.3&q=80&w=1080')"
-    : "url('https://images.unsplash.com/photo-1592322833315-84aab7c80d42?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8emVsZGElMjBsaWdodHxlbnwwfHwwfHw&ixlib=rb-4.0.3&q=80&w=1080')";
-  document.body.style.color = darkMode ? "white" : "black";
 });
