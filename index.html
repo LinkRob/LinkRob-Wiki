@@ -1,53 +1,53 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LinkRob Wiki</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkRob Wiki</title>
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dark">
 
-    <!-- Barre latérale -->
-    <div id="sidebar" class="sidebar">
-        <div class="sidebar-header">
-            <img id="sidebarLogo" src="https://upload.wikimedia.org/wikipedia/commons/6/66/Zelda_Logo.png" alt="Logo LinkRob Wiki">
-        </div>
-        <ul class="sidebar-menu">
-            <li data-page="accueil">Accueil</li>
-            <li data-page="test-publications">Test Publications</li>
-            <li data-page="jeux">Jeux</li>
-            <li data-page="reglement">Règlement</li>
-            <li data-page="objets">Objets</li>
-            <li data-page="soluce">Soluce</li>
-        </ul>
+<!-- Bouton menu -->
+<div id="menuBtn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Zelda_Logo.png" alt="Ouvrir menu">
+</div>
+
+<!-- Barre latérale -->
+<div id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Zelda_Logo.png" alt="Logo LinkRob Wiki">
     </div>
+    <ul class="sidebar-menu">
+        <li data-page="accueil">Accueil</li>
+        <li data-page="test-publications">Test Publications</li>
+        <li data-page="jeux">Jeux</li>
+        <li data-page="reglement">Règlement</li>
+        <li data-page="objets">Objets</li>
+        <li data-page="soluce">Soluce</li>
+    </ul>
+</div>
 
-    <!-- Bouton pour ouvrir/fermer la barre latérale -->
-    <div id="menuBtn">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Zelda_Logo.png" alt="Ouvrir menu">
+<!-- Contenu principal -->
+<div id="mainContent" class="main-content">
+    <div class="top-bar">
+        <input type="text" id="searchBar" placeholder="Rechercher une page...">
+        <img id="editBtn" src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Edit_icon.svg" alt="Créer une page">
     </div>
-
-    <!-- Contenu principal -->
-    <div id="mainContent" class="main-content">
-        <div class="top-bar">
-            <input type="text" id="searchBar" placeholder="Rechercher une page...">
-            <img id="editBtn" src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Edit_icon.svg" alt="Créer une page">
-        </div>
-        <div id="pageContent">
-            <h1>Bienvenue sur LinkRob Wiki !</h1>
-            <p>Cliquez sur la barre latérale pour naviguer dans les pages.</p>
-            <div class="links">
-                <a href="https://discord.gg/Q6kmbXamN3" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Discord_logo.svg" alt="Discord"> Rejoignez notre Discord
-                </a>
-                <a href="https://www.youtube.com/channel/UCZu8OUQjwGfIT_ialw_LtsA" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube"> Chaîne YouTube
-                </a>
-            </div>
+    <div id="pageContent">
+        <h1>Bienvenue sur LinkRob Wiki !</h1>
+        <p>Cliquez sur le menu pour naviguer dans les pages.</p>
+        <div class="links">
+            <a href="https://discord.gg/Q6kmbXamN3" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Discord_logo.svg" alt="Discord"> Rejoignez notre Discord
+            </a>
+            <a href="https://www.youtube.com/channel/UCZu8OUQjwGfIT_ialw_LtsA" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube"> Chaîne YouTube
+            </a>
         </div>
     </div>
+</div>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
