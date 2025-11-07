@@ -1,176 +1,43 @@
-/* Corps général */
 body {
   margin: 0;
   font-family: 'Verdana', sans-serif;
   color: white;
-  background-image: url('https://images.unsplash.com/photo-1589830918436-556c879ff231?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080');
-  background-size: cover;
-  background-position: center;
-  transition: background-image 0.5s, color 0.5s;
+  background-color: #1e1e1e;
 }
 
 /* Sidebar */
 #sidebar {
-  height: 100%;
   width: 300px;
   position: fixed;
-  top: 0;
-  left: -300px;
+  top: 0; left: -300px;
+  height: 100%;
   background-color: rgba(0,0,0,0.95);
   padding-top: 60px;
   transition: 0.3s;
   z-index: 1000;
-  overflow-y: auto;
-  border-right: 3px solid gold;
-}
-
-#sidebar .sidebar-header {
-  text-align: center;
-  font-size: 26px;
-  padding: 15px;
-  border-bottom: 3px solid gold;
-}
-
-#sidebar ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-#sidebar ul li {
-  padding: 15px 20px;
-}
-
-#sidebar ul li a {
-  color: white;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  font-size: 20px;
-  transition: 0.2s;
-}
-
-#sidebar ul li a:hover {
-  background-color: rgba(255,215,0,0.2);
-  border-radius: 8px;
-}
-
-#sidebar .icon {
-  width: 28px;
-  height: 28px;
-  margin-right: 12px;
-}
-
-/* Logo menu */
-#menu-logo {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  cursor: pointer;
-  z-index: 1001;
-}
-
-#logo {
-  width: 70px;
-  height: 70px;
-  border: 3px solid gold;
-  border-radius: 50%;
-}
-
-/* Top bar */
-#top-bar {
-  position: fixed;
-  top: 10px;
-  right: 20px;
-  z-index: 1002;
-}
-
-#top-bar input, #top-bar button {
-  padding: 10px 15px;
-  font-size: 18px;
-  margin-left: 5px;
-  cursor: pointer;
-  border-radius: 8px;
-  border: 2px solid gold;
-  background-color: rgba(0,0,0,0.7);
-  color: white;
-}
-
-#top-bar input::placeholder {
-  color: lightgray;
 }
 
 /* Contenu principal */
-#main-content {
-  margin-left: 20px;
-  padding: 20px;
-}
-
-/* Zone dynamique */
-#dynamic-content {
+#main-content { margin-left: 20px; padding: 20px; }
+#dynamic-content, #editor {
   margin-top: 30px;
   border: 2px solid gold;
   padding: 20px;
   border-radius: 10px;
   background-color: rgba(0,0,0,0.6);
-  max-width: 1000px;
 }
 
-/* Éditeur */
-#editor {
-  margin-top: 20px;
-  border: 2px solid gold;
-  padding: 20px;
-  border-radius: 10px;
-  background-color: rgba(0,0,0,0.7);
-  max-width: 1000px;
-}
-
-#editor input, #editor textarea {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  font-size: 18px;
+/* Top bar */
+#top-bar { position: fixed; top: 10px; right: 20px; z-index: 1002; }
+#top-bar input, #top-bar button {
+  padding: 10px 15px;
+  margin-left: 5px;
   border-radius: 8px;
   border: 2px solid gold;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.7);
   color: white;
 }
 
-#editor button {
-  padding: 12px 25px;
-  font-size: 18px;
-  cursor: pointer;
-  border-radius: 8px;
-  border: 2px solid gold;
-  background-color: rgba(255,215,0,0.8);
-  color: black;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-/* Thème clair */
-.light-mode {
-  color: black;
-  background-image: url('https://images.unsplash.com/photo-1592322833315-84aab7c80d42?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080');
-}
-
-.light-mode #sidebar {
-  background-color: rgba(255,255,255,0.95);
-  color: black;
-  border-right: 3px solid darkblue;
-}
-
-.light-mode #sidebar ul li a {
-  color: black;
-}
-
-.light-mode #dynamic-content, .light-mode #editor {
-  background-color: rgba(255,255,255,0.8);
-  color: black;
-}
-
-.light-mode #top-bar input, .light-mode #top-bar button {
-  background-color: rgba(255,255,255,0.8);
-  color: black;
-  border: 2px solid darkblue;
-}
+/* Logo menu */
+#menu-logo { position: fixed; top: 10px; left: 10px; cursor: pointer; z-index: 1001; }
+#logo { width: 70px; height: 70px; border: 3px solid gold; border-radius: 50%; }
