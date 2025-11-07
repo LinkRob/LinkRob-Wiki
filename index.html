@@ -1,39 +1,43 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>LinkRob Wiki</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>LinkRob Wiki</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<!-- Logo pour ouvrir/fermer la barre latérale -->
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Zelda_triforce.svg" id="logo" alt="Logo LinkRob Wiki" onclick="toggleSidebar()">
-
-<!-- Barre latérale -->
-<div id="sidebar" class="sidebar">
-  <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">×</a>
-  <a href="#">Accueil</a>
-  <a href="#">Test publications</a>
-  <a href="#">Jeux</a>
-  <a href="#">Règlement</a>
-  <a href="#">Objets</a>
-  <a href="#">Soluce</a>
-</div>
-
-<!-- Contenu principal -->
-<div id="main">
-  <h1>Bienvenue sur LinkRob Wiki</h1>
-  <div class="buttons">
-    <a href="https://discord.gg/Q6kmbXamN3" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Discord_logo.svg" alt="Discord" class="icon"> Rejoindre le serveur Discord
-    </a>
-    <a href="https://www.youtube.com/channel/UCZu8OUQjwGfIT_ialw_LtsA" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube" class="icon"> Ma chaîne YouTube
-    </a>
+  <!-- Logo pour ouvrir la barre latérale -->
+  <div id="menu-logo">
+    <img src="https://static.wikia.nocookie.net/zeldawikidelinkrob/images/e/e6/Site-logo.png/revision/latest?cb=20250817120015" alt="Logo LinkRob Wiki" id="logo">
   </div>
-</div>
 
-<script src="script.js"></script>
+  <!-- Barre latérale -->
+  <div id="sidebar">
+    <ul>
+      <li><a href="#" class="sidebar-link">Accueil</a></li>
+      <li><a href="#" class="sidebar-link">Test publications</a></li>
+      <li><a href="#" class="sidebar-link">Jeux</a></li>
+      <li><a href="#" class="sidebar-link">Règlement</a></li>
+      <li><a href="#" class="sidebar-link">Objets</a></li>
+      <li><a href="#" class="sidebar-link">Soluce</a></li>
+    </ul>
+  </div>
+
+  <!-- Contenu principal -->
+  <div id="main-content">
+    <h1>Bienvenue sur LinkRob Wiki !</h1>
+    <p>Fan de la saga Zelda ? Explore le contenu et rejoins notre communauté !</p>
+
+    <div class="buttons">
+      <a href="https://discord.gg/Q6kmbXamN3" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Discord_logo.svg" alt="Discord" class="icon"> Rejoignez le serveur Discord
+      </a>
+      <a href="https://www.youtube.com/channel/UCZu8OUQjwGfIT_ialw_LtsA" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube" class="icon"> Abonnez-vous à la chaîne YouTube
+      </a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
