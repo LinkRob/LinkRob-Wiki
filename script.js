@@ -36,10 +36,12 @@ searchBtn.addEventListener("click", () => {
   if (!query) return;
   db.ref("pages/" + query).get().then((snapshot) => {
     if (snapshot.exists()) {
-      dynamicContent.innerHTML = `<h2>${query}</h2><p>${snapshot.val().content}</p>`;
+      const data = snapshot.val();
+      dynamicContent.innerHTML = `<h2>${query}</h2><p>${data.content}</p>${data.image ? `<img src="${data.image}" style="max-width:400px;">` : ""}`;
     } else {
       editor.style.display = "block";
       document.getElementById("page-title").value = query;
+      document.getElementById("page-content").value = "";
     }
   });
 });
