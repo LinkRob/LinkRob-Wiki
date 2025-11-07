@@ -1,104 +1,87 @@
-/* Général */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  transition: background 0.3s, color 0.3s;
+  font-family: 'Arial', sans-serif;
+  transition: background 0.5s;
 }
 
-/* Conteneur logo */
-.logo-container {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  z-index: 1001;
-  cursor: pointer;
-}
-.logo {
-  width: 60px;
-  height: auto;
-}
-
-/* Barre latérale */
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: -220px; /* cachée par défaut */
-  width: 220px;
-  height: 100%;
-  background-color: rgba(50,50,50,0.95);
-  color: #fff;
-  padding-top: 80px;
-  transition: left 0.3s;
-  z-index: 1000;
-}
-.sidebar.show {
-  left: 0;
-}
-.sidebar nav ul {
-  list-style: none;
-  padding: 0;
-}
-.sidebar nav ul li {
-  margin: 15px 0;
-}
-.sidebar nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  display: block;
-  padding: 8px 16px;
-  border-radius: 4px;
-  transition: background 0.2s;
-}
-.sidebar nav ul li a:hover,
-.sidebar nav ul li a.active {
-  background-color: #0066cc;
-}
-
-/* Contenu principal */
-.content {
-  margin-left: 20px;
-  padding: 20px;
-  transition: margin-left 0.3s;
-}
-
-/* Mode clair */
-body.light-mode {
-  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcrscNc2FDl6ijPDt12YkJiw1ika3elg1WUA&s');
+/* Thèmes */
+body.theme-dark {
+  background: url('https://images.unsplash.com/photo-1597710051457-57c3d16ec5f6?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
   background-size: cover;
-  background-position: center;
+  color: #fff;
+}
+
+body.theme-light {
+  background: url('https://images.unsplash.com/photo-1601050691507-d5f887d72d1d?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+  background-size: cover;
   color: #000;
 }
 
-/* Mode sombre */
-body.dark-mode {
-  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3ZDIaUrACmhoYMVFfkzjeqC7xpXxgG_3wBQ&s');
-  background-size: cover;
-  background-position: center;
-  color: #fff;
-}
-
-/* Liens externes */
-.external-links a {
-  display: inline-block;
-  margin-right: 10px;
-  padding: 6px 12px;
-  background-color: #0078d4;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-}
-.external-links a:hover {
-  background-color: #005fa3;
-}
-
-/* Bouton mode sombre */
-button {
-  border: none;
-  background-color: #444;
-  color: #fff;
-  border-radius: 5px;
+/* Logo */
+#logo-container {
+  text-align: center;
+  padding: 10px;
   cursor: pointer;
 }
-button:hover {
-  background-color: #222;
+
+#logo {
+  width: 150px;
+}
+
+/* Sidebar */
+#sidebar {
+  position: fixed;
+  left: -250px;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  background-color: rgba(30, 30, 30, 0.95);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  z-index: 1000;
+}
+
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+#sidebar ul li {
+  padding: 15px;
+  font-size: 18px;
+}
+
+#sidebar ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#sidebar ul li a:hover {
+  text-decoration: underline;
+}
+
+.edit-icon {
+  margin-right: 10px;
+}
+
+/* Content */
+#content {
+  margin-left: 0;
+  padding: 20px;
+  transition: margin-left 0.5s;
+}
+
+/* Icônes Discord / YouTube */
+.icon {
+  width: 20px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+/* Bouton thème */
+#toggle-theme {
+  margin: 20px;
+  padding: 10px;
+  cursor: pointer;
 }
