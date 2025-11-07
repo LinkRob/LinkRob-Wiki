@@ -1,43 +1,108 @@
+/* Général */
 body {
-  margin: 0;
-  font-family: 'Verdana', sans-serif;
-  color: white;
-  background-color: #1e1e1e;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    transition: background 0.5s, color 0.5s;
 }
 
-/* Sidebar */
-#sidebar {
-  width: 300px;
-  position: fixed;
-  top: 0; left: -300px;
-  height: 100%;
-  background-color: rgba(0,0,0,0.95);
-  padding-top: 60px;
-  transition: 0.3s;
-  z-index: 1000;
+/* Mode clair / sombre */
+body.light {
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcrscNc2FDl6ijPDt12YkJiw1ika3elg1WUA&s') no-repeat center center fixed;
+    background-size: cover;
+    color: #000;
+}
+body.dark {
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3ZDIaUrACmhoYMVFfkzjeqC7xpXxgG_3wBQ&s') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+}
+
+/* Barre latérale */
+.sidebar {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    overflow-x: hidden;
+    transition: 0.3s;
+    z-index: 1000;
+    color: #fff;
+}
+.sidebar.open {
+    left: 0;
+}
+.sidebar-header {
+    text-align: center;
+    padding: 20px;
+}
+.sidebar-header img {
+    max-width: 120px;
+}
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+}
+.sidebar-menu li {
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.sidebar-menu li:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+/* Bouton menu */
+#menuBtn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    z-index: 1100;
+}
+#menuBtn img {
+    width: 60px;
 }
 
 /* Contenu principal */
-#main-content { margin-left: 20px; padding: 20px; }
-#dynamic-content, #editor {
-  margin-top: 30px;
-  border: 2px solid gold;
-  padding: 20px;
-  border-radius: 10px;
-  background-color: rgba(0,0,0,0.6);
+.main-content {
+    margin-left: 0;
+    padding: 20px;
+    transition: margin-left 0.3s;
+}
+.main-content.shifted {
+    margin-left: 250px;
 }
 
-/* Top bar */
-#top-bar { position: fixed; top: 10px; right: 20px; z-index: 1002; }
-#top-bar input, #top-bar button {
-  padding: 10px 15px;
-  margin-left: 5px;
-  border-radius: 8px;
-  border: 2px solid gold;
-  background-color: rgba(0,0,0,0.7);
-  color: white;
+/* Barre de recherche et édition */
+.top-bar {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.top-bar input[type="text"] {
+    padding: 5px;
+    font-size: 16px;
+}
+.top-bar img {
+    width: 32px;
+    cursor: pointer;
 }
 
-/* Logo menu */
-#menu-logo { position: fixed; top: 10px; left: 10px; cursor: pointer; z-index: 1001; }
-#logo { width: 70px; height: 70px; border: 3px solid gold; border-radius: 50%; }
+/* Liens Discord/YouTube */
+.links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: inherit;
+    padding: 10px;
+}
+.links img {
+    width: 32px;
+    vertical-align: middle;
+}
