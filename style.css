@@ -1,66 +1,118 @@
-/* Reset rapide */
-* {
+/* === LinkRob Wiki : Feuille de style principale === */
+
+/* 🎯 Variables globales : par défaut (mode clair) */
+:root {
+  /* Fonds */
+  --bg-url: url('https://upload.wikimedia.org/wikipedia/commons/7/7d/The_Legend_of_Zelda_Breath_of_the_Wild_logo.png');
+  --bg-color: #e7f0eb;
+
+  /* Couleurs du texte et accents */
+  --main-text-color: #111;
+  --accent-color: #2e8b57;
+  --light-bg: rgba(255, 255, 255, 0.9);
+  --overlay-rgba: 255, 255, 255;
+  --overlay-opacity: 0.25;
+}
+
+/* 🌙 Mode sombre automatique selon le système de l'utilisateur */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-url: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQdPGG_NkJdUG0LC-dZmVxjD1ly8I_dbxgKw&s'); /* Zelda sombre */
+    --bg-color: #0b3d2e;
+    --main-text-color: #eee;
+    --accent-color: #6cd4a4;
+    --light-bg: rgba(20, 20, 20, 0.85);
+    --overlay-rgba: 0, 0, 0;
+    --overlay-opacity: 0.35;
+  }
+}
+
+/* Structure globale */
+html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
+/* 🌄 Fond d'écran principal */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f0f8ff;
-  color: #333;
-  line-height: 1.6;
-  padding: 20px;
+  min-height: 100%;
+  background-color: var(--bg-color);
+  background-image:
+    linear-gradient(
+      rgba(var(--overlay-rgba), var(--overlay-opacity)),
+      rgba(var(--overlay-rgba), var(--overlay-opacity))
+    ),
+    var(--bg-url);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--main-text-color);
+  font-family: "Segoe UI", Arial, sans-serif;
+  transition: background-image 0.4s ease-in-out, background-color 0.4s ease-in-out;
 }
 
+/* 📦 Contenu principal */
+main, .content {
+  max-width: 1100px;
+  margin: 2rem auto;
+  background: var(--light-bg);
+  color: var(--main-text-color);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* 🏰 En-tête */
 header {
-  text-align: center;
-  padding: 20px 0;
-  background-color: #1e90ff;
+  background: rgba(0, 0, 0, 0.35);
   color: white;
-  border-radius: 10px;
-}
-
-nav {
-  margin: 20px 0;
+  padding: 18px 10px;
+  border-radius: 8px;
   text-align: center;
-}
-
-nav ul {
-  list-style: none;
-}
-
-nav ul li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: #1e90ff;
+  font-size: 1.8rem;
   font-weight: bold;
-  padding: 5px 10px;
-  border-radius: 5px;
-  transition: background-color 0.3s;
 }
 
-nav ul li a:hover {
-  background-color: #1e90ff;
-  color: white;
+/* 🔗 Liens */
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: 0.2s;
+}
+a:hover {
+  text-decoration: underline;
 }
 
-main {
-  max-width: 800px;
-  margin: 0 auto 40px auto;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+/* 🧱 Sections du wiki */
+section {
+  margin-top: 2rem;
+  padding: 1rem 0;
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
 }
 
-footer {
+/* 📱 Mobile-friendly */
+@media (max-width: 820px) {
+  body {
+    background-attachment: scroll;
+  }
+  main, .content {
+    margin: 1rem;
+    padding: 15px;
+  }
+  header {
+    font-size: 1.4rem;
+  }
+}
+
+/* ✨ Attribution (facultatif en bas de page) */
+.attribution {
   text-align: center;
+  font-size: 0.8rem;
+  opacity: 0.7;
   margin-top: 20px;
-  padding: 10px 0;
-  color: #555;
+}
+.attribution a {
+  color: #ddd;
 }
