@@ -17,26 +17,19 @@
   <aside class="sidebar" id="sidebar">
     <nav>
       <ul>
-        <li><a href="#" class="active">Accueil</a></li>
-        <li><a href="#">Test publications</a></li>
-        <li><a href="#">Jeux</a></li>
-        <li><a href="#">Règlement</a></li>
-        <li><a href="#">Objets</a></li>
-        <li><a href="#">Soluce</a></li>
+        <li><a href="#" class="menu-link active" data-section="accueil">Accueil</a></li>
+        <li><a href="#" class="menu-link" data-section="test">Test publications</a></li>
+        <li><a href="#" class="menu-link" data-section="jeux">Jeux</a></li>
+        <li><a href="#" class="menu-link" data-section="reglement">Règlement</a></li>
+        <li><a href="#" class="menu-link" data-section="objets">Objets</a></li>
+        <li><a href="#" class="menu-link" data-section="soluce">Soluce</a></li>
       </ul>
     </nav>
   </aside>
 
-  <!-- Contenu principal -->
-  <main class="content">
-    <h1>Bienvenue sur LinkRob Wiki !</h1>
-    <p>Ici, tu trouveras toutes les informations sur la saga Zelda.</p>
-
-    <!-- Liens Discord et YouTube -->
-    <div class="external-links">
-      <a href="https://discord.gg/Q6kmbXamN3" target="_blank">Rejoins notre Discord</a>
-      <a href="https://www.youtube.com/channel/UCZu8OUQjwGfIT_ialw_LtsA" target="_blank">Visite notre chaîne YouTube</a>
-    </div>
+  <!-- Contenu principal dynamique -->
+  <main class="content" id="mainContent">
+    <!-- Le contenu sera chargé ici via JS -->
   </main>
 
   <script src="script.js"></script>
