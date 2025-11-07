@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const sidebar = document.getElementById("sidebar");
   const mainContent = document.getElementById("mainContent");
   const menuLinks = document.querySelectorAll(".menu-link");
+  const body = document.body;
 
   // Contenu pour chaque section
   const sections = {
@@ -21,29 +22,26 @@ document.addEventListener("DOMContentLoaded", () => {
     soluce: `<h2>Soluce</h2><p>Guides et solutions pour les jeux.</p>`
   };
 
-  // Fonction pour charger une section
+  // Charger une section
   function loadSection(section) {
     mainContent.innerHTML = sections[section] || "<p>Section non trouvée.</p>";
   }
 
-  // Initialiser avec la section Accueil
+  // Initialiser avec Accueil
   loadSection("accueil");
 
-  // Gestion des clics dans la barre latérale
+  // Gestion clics barre latérale
   menuLinks.forEach(link => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
-      // Retirer active de tous
       menuLinks.forEach(l => l.classList.remove("active"));
-      // Ajouter active à celui cliqué
       link.classList.add("active");
-      // Charger le contenu correspondant
       const section = link.getAttribute("data-section");
       loadSection(section);
     });
   });
 
-  // Bascule affichage barre latérale
+  // Afficher / cacher la barre latérale
   logoButton.addEventListener("click", () => {
     sidebar.classList.toggle("show");
   });
@@ -52,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const toggleButton = document.createElement("button");
   toggleButton.textContent = "🌙 Mode Sombre / Clair";
   toggleButton.style.position = "fixed";
-  toggleButton.style.top = "60px";
+  toggleButton.style.top = "80px";
   toggleButton.style.right = "10px";
   toggleButton.style.padding = "8px 12px";
   toggleButton.style.cursor = "pointer";
@@ -60,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.body.appendChild(toggleButton);
 
   toggleButton.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
+    body.classList.toggle("dark-mode");
+    body.classList.toggle("light-mode");
   });
 });
