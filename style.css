@@ -1,87 +1,53 @@
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
-  transition: background 0.5s;
-}
-
-/* Thèmes */
-body.theme-dark {
-  background: url('https://images.unsplash.com/photo-1597710051457-57c3d16ec5f6?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+  font-family: Arial, sans-serif;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3ZDIaUrACmhoYMVFfkzjeqC7xpXxgG_3wBQ&s"); /* thème sombre par défaut */
   background-size: cover;
-  color: #fff;
+  background-position: center;
 }
 
-body.theme-light {
-  background: url('https://images.unsplash.com/photo-1601050691507-d5f887d72d1d?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
-  background-size: cover;
-  color: #000;
-}
-
-/* Logo */
-#logo-container {
-  text-align: center;
-  padding: 10px;
-  cursor: pointer;
-}
-
-#logo {
-  width: 150px;
-}
-
-/* Sidebar */
-#sidebar {
-  position: fixed;
-  left: -250px;
-  top: 0;
-  width: 250px;
+/* Barre latérale */
+.sidebar {
   height: 100%;
-  background-color: rgba(30, 30, 30, 0.95);
+  width: 0;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  background-color: #111;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
-  z-index: 1000;
 }
 
-#sidebar ul {
-  list-style: none;
-  padding: 0;
-}
-
-#sidebar ul li {
-  padding: 15px;
-  font-size: 18px;
-}
-
-#sidebar ul li a {
-  color: #fff;
+.sidebar a {
+  padding: 10px 15px;
   text-decoration: none;
+  font-size: 18px;
+  color: #f1f1f1;
+  display: block;
+  transition: 0.3s;
 }
 
-#sidebar ul li a:hover {
-  text-decoration: underline;
+.sidebar a:hover {
+  background-color: #575757;
 }
 
-.edit-icon {
-  margin-right: 10px;
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 30px;
 }
 
-/* Content */
-#content {
-  margin-left: 0;
-  padding: 20px;
-  transition: margin-left 0.5s;
-}
-
-/* Icônes Discord / YouTube */
-.icon {
-  width: 20px;
-  vertical-align: middle;
-  margin-right: 5px;
-}
-
-/* Bouton thème */
-#toggle-theme {
-  margin: 20px;
-  padding: 10px;
+/* Logo */
+#logo {
   cursor: pointer;
+  width: 100px;
+  margin: 10px;
+}
+
+/* Contenu principal */
+#main {
+  margin-left: 20px;
 }
