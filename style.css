@@ -7,12 +7,12 @@ body {
 
 /* Mode clair / sombre */
 body.light {
-    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcrscNc2FDl6ijPDt12YkJiw1ika3elg1WUA&s') no-repeat center center fixed;
+    background: url('https://i.imgur.com/7Y7xAqb.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #000;
 }
 body.dark {
-    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3ZDIaUrACmhoYMVFfkzjeqC7xpXxgG_3wBQ&s') no-repeat center center fixed;
+    background: url('https://i.imgur.com/JuD2k1u.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
 }
