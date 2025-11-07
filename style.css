@@ -6,6 +6,25 @@ body {
   min-height: 100vh;
 }
 
+/* Logo en haut */
+.logo-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #121212;
+  padding: 5px 20px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  z-index: 1001;
+}
+
+.logo {
+  height: 50px;
+  cursor: pointer;
+}
+
 /* Barre latérale */
 .sidebar {
   width: 220px;
@@ -15,15 +34,16 @@ body {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  position: fixed;
+  top: 60px;
+  left: -240px; /* cachée par défaut */
+  height: 100%;
+  transition: left 0.3s;
+  z-index: 1000;
 }
 
-.sidebar-logo {
-  display: block;
-  margin-bottom: 20px;
-  max-width: 180px;
-  width: 100%;
-  height: auto;
+.sidebar.show {
+  left: 0;
 }
 
 .sidebar nav ul {
@@ -52,17 +72,38 @@ body {
 /* Contenu principal */
 .content {
   flex: 1;
-  padding: 20px;
+  padding: 80px 20px 20px 20px; /* haut pour laisser place au logo */
+  margin-left: 0; /* espace si sidebar ouverte sera géré par JS */
   background-color: #f0f0f0;
   box-sizing: border-box;
 }
 
-/* Mode sombre / clair basique (sera contrôlé via script plus tard) */
+/* Liens externes */
+.external-links {
+  margin-top: 20px;
+}
+
+.external-links a {
+  display: block;
+  margin: 5px 0;
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+.external-links a:hover {
+  text-decoration: underline;
+}
+
+/* Mode sombre / clair */
 body.dark-mode .content {
   background-color: #121212;
   color: white;
 }
 
 body.dark-mode .sidebar {
+  background-color: #0d0d0d;
+}
+
+body.dark-mode .logo-container {
   background-color: #0d0d0d;
 }
