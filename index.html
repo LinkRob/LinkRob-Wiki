@@ -1,53 +1,58 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LinkRob Wiki</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LinkRob Wiki</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="dark">
-
-<!-- Bouton menu -->
-<div id="menuBtn">
-    <img src="https://i.imgur.com/E5Gq3Xs.png" alt="Ouvrir menu">
-</div>
-
-<!-- Barre latérale -->
-<div id="sidebar" class="sidebar">
-    <div class="sidebar-header">
-        <img src="https://i.imgur.com/E5Gq3Xs.png" alt="Logo LinkRob Wiki">
+<body>
+  <!-- Logo/menu -->
+  <header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Triforce.svg"
+         alt="Logo Zelda" id="menu-logo" />
+    <h1>LinkRob Wiki</h1>
+    <div class="header-actions">
+      <input type="text" id="searchBar" placeholder="Rechercher..." />
+      <button id="createPageBtn" title="Créer un article">✏️</button>
     </div>
-    <ul class="sidebar-menu">
-        <li data-page="accueil">Accueil</li>
-        <li data-page="test-publications">Test Publications</li>
-        <li data-page="jeux">Jeux</li>
-        <li data-page="reglement">Règlement</li>
-        <li data-page="objets">Objets</li>
-        <li data-page="soluce">Soluce</li>
+  </header>
+
+  <!-- Barre latérale -->
+  <nav id="sidebar" class="hidden">
+    <ul>
+      <li><a href="#">Accueil</a></li>
+      <li><a href="#">Test Publications</a></li>
+      <li><a href="#">Jeux</a></li>
+      <li><a href="#">Règlement</a></li>
+      <li><a href="#">Objets</a></li>
+      <li><a href="#">Soluce</a></li>
     </ul>
-</div>
+  </nav>
 
-<!-- Contenu principal -->
-<div id="mainContent" class="main-content">
-    <div class="top-bar">
-        <input type="text" id="searchBar" placeholder="Rechercher une page...">
-        <img id="editBtn" src="https://i.imgur.com/YwM3KqR.png" alt="Créer une page">
-    </div>
-    <div id="pageContent">
-        <h1>Bienvenue sur LinkRob Wiki !</h1>
-        <p>Cliquez sur le menu pour naviguer dans les pages.</p>
-        <div class="links">
-            <a href="https://discord.gg/Q6kmbXamN3" target="_blank">
-                <img src="https://i.imgur.com/0lRvdOS.png" alt="Discord"> Rejoignez notre Discord
-            </a>
-            <a href="https://www.youtube.com/channel/UCZu8OUQjwGfIT_ialw_LtsA" target="_blank">
-                <img src="https://i.imgur.com/7y9wXt0.png" alt="YouTube"> Chaîne YouTube
-            </a>
-        </div>
-    </div>
-</div>
+  <!-- Contenu principal -->
+  <main>
+    <section class="welcome">
+      <h2>Bienvenue sur le LinkRob Wiki !</h2>
+      <p>Votre encyclopédie collaborative dédiée à l’univers de <strong>The Legend of Zelda</strong>.</p>
+      <div class="social-links">
+        <a href="https://discord.gg/Q6kmbXamN3" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Discord_logo.svg" alt="Discord" class="icon" />
+        </a>
+        <a href="https://www.youtube.com/channel/UCZu8OUQjwGfIT_ialw_LtsA" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube" class="icon" />
+        </a>
+      </div>
+    </section>
 
-<script src="script.js"></script>
+    <section id="editor" class="hidden">
+      <h3>Nouvel article</h3>
+      <input type="text" id="pageTitle" placeholder="Titre de la page" />
+      <textarea id="pageContent" placeholder="Écrivez ici votre contenu..."></textarea>
+      <button id="savePageBtn">💾 Sauvegarder</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
