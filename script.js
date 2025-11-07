@@ -1,42 +1,33 @@
-const sidebar = document.getElementById("sidebar");
-const menuLogo = document.getElementById("menu-logo");
-const mainContent = document.getElementById("main-content");
-const editor = document.getElementById("editor");
+// Sidebar toggle
+const sidebar = document.getElementById('sidebar');
+const menuBtn = document.getElementById('menuBtn');
+const mainContent = document.getElementById('mainContent');
 
-menuLogo.onclick = () => { sidebar.style.left = sidebar.style.left==="0px" ? "-300px" : "0px"; }
+menuBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+    mainContent.classList.toggle('shifted');
+});
 
-function toggleTheme(){ document.body.classList.toggle("light-mode"); }
+// Mode clair / sombre
+document.body.classList.add('dark'); // par défaut
+// Pour switcher: document.body.classList.toggle('light');
 
-function showPage(pageName){
-  const content = localStorage.getItem(pageName);
-  mainContent.innerHTML = `<div id="dynamic-content"><h2>${pageName}</h2><p>${content ? content : "Aucune info pour cette page."}</p></div>`;
-}
+// Créer nouvelle page
+const editBtn = document.getElementById('editBtn');
+editBtn.addEventListener('click', () => {
+    const title = prompt("Nom de la nouvelle page :");
+    if(title) {
+        const pageDiv = document.createElement('div');
+        pageDiv.innerHTML = `<h2>${title}</h2><textarea style="width:100%;height:300px;" placeholder="Écrivez votre contenu ici..."></textarea><button onclick="alert('Sauvegardé !')">Sauvegarder</button>`;
+        document.getElementById('pageContent').innerHTML = '';
+        document.getElementById('pageContent').appendChild(pageDiv);
+    }
+});
 
-function createPage(){
-  editor.style.display = "block";
-  mainContent.style.display = "none";
-  document.getElementById("page-title").value="";
-  document.getElementById("page-content").value="";
-}
-
-function savePage(){
-  const title=document.getElementById("page-title").value;
-  const content=document.getElementById("page-content").value;
-  if(title && content){
-    localStorage.setItem(title,content);
-    editor.style.display="none";
-    mainContent.style.display="block";
-    showPage(title);
-  } else { alert("Remplissez le titre et le contenu !"); }
-}
-
-function closeEditor(){ editor.style.display="none"; mainContent.style.display="block"; }
-
-document.getElementById("searchInput").addEventListener("keypress", function(e){
-  if(e.key==='Enter'){
-    const query=e.target.value;
-    const content=localStorage.getItem(query);
-    if(content){ showPage(query); }
-    else { if(confirm("Page non trouvée. Voulez-vous la créer ?")){ createPage(); document.getElementById("page-title").value=query; } }
-  }
+// Barre de recherche
+const searchBar = document.getElementById('searchBar');
+searchBar.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter') {
+        alert(`Recherche: ${searchBar.value} (fonctionnalité future pour ouvrir page ou créer nouvelle page)`);
+    }
 });
