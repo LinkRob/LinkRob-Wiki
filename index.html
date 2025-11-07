@@ -4,59 +4,49 @@
   <meta charset="UTF-8">
   <title>LinkRob Wiki</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Firebase SDK -->
+  <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-storage-compat.js"></script>
 </head>
 <body>
-  <!-- Logo pour ouvrir barre latérale -->
-  <div id="menu-logo">
-    <img src="https://static.wikia.nocookie.net/zeldawikidelinkrob/images/e/e6/Site-logo.png/revision/latest?cb=20250817120015" alt="Logo LinkRob Wiki" id="logo">
-  </div>
-
   <!-- Barre latérale -->
   <div id="sidebar">
     <ul>
       <li><a href="#" class="sidebar-link" data-page="Accueil">Accueil</a></li>
-      <li><a href="#" class="sidebar-link" data-page="Test publications">Test publications</a></li>
       <li><a href="#" class="sidebar-link" data-page="Jeux">Jeux</a></li>
-      <li><a href="#" class="sidebar-link" data-page="Règlement">Règlement</a></li>
       <li><a href="#" class="sidebar-link" data-page="Objets">Objets</a></li>
       <li><a href="#" class="sidebar-link" data-page="Soluce">Soluce</a></li>
+      <li><a href="#" class="sidebar-link" data-page="Règlement">Règlement</a></li>
     </ul>
   </div>
 
-  <!-- Barre de recherche + mode clair/sombre -->
+  <!-- Logo pour ouvrir la sidebar -->
+  <div id="menu-logo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Zelda_Logo.svg" alt="LinkRob Wiki" id="logo">
+  </div>
+
+  <!-- Top bar avec recherche et crayon -->
   <div id="top-bar">
     <input type="text" id="search-input" placeholder="Rechercher une page...">
     <button id="search-btn">🔍</button>
+    <button id="create-btn">✏️</button>
     <button id="theme-toggle">🌓</button>
   </div>
 
   <!-- Contenu principal -->
   <div id="main-content">
     <h1>Bienvenue sur LinkRob Wiki !</h1>
-    <p>Fan de la saga Zelda ? Explorez le contenu et rejoignez notre communauté !</p>
-
-    <div class="buttons">
-      <a href="https://discord.gg/Q6kmbXamN3" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Discord_logo_2015.svg" alt="Discord" class="icon"> Rejoignez le serveur Discord
-      </a>
-      <a href="https://www.youtube.com/channel/UCZu8OUQjwGfIT_ialw_LtsA" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube" class="icon"> Abonnez-vous à la chaîne YouTube
-      </a>
-    </div>
-
-    <!-- Zone création de page -->
-    <div id="new-page" style="display:none;">
-      <h2>Créer/Modifier une page :</h2>
-      <input type="text" id="new-page-title" placeholder="Titre de la page">
-      <textarea id="new-page-content" placeholder="Écrivez ici le contenu..." rows="10"></textarea>
-      <button id="create-page-btn">Enregistrer</button>
-    </div>
-
-    <!-- Contenu des pages dynamiques -->
     <div id="dynamic-content"></div>
+
+    <!-- Création / modification page -->
+    <div id="editor" style="display:none;">
+      <input type="text" id="page-title" placeholder="Titre de la page">
+      <textarea id="page-content" placeholder="Écrivez votre contenu ici..." rows="10"></textarea>
+      <input type="file" id="image-upload">
+      <input type="text" id="image-name" placeholder="Nom de l'image">
+      <button id="save-btn">💾 Enregistrer</button>
+    </div>
   </div>
 
   <script src="script.js"></script>
