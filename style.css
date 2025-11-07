@@ -1,109 +1,104 @@
-/* Styles généraux */
+/* Général */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  display: flex;
-  min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
 }
 
-/* Logo en haut */
+/* Conteneur logo */
 .logo-container {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: #121212;
-  padding: 5px 20px;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
+  top: 10px;
+  left: 10px;
   z-index: 1001;
-}
-
-.logo {
-  height: 50px;
   cursor: pointer;
+}
+.logo {
+  width: 60px;
+  height: auto;
 }
 
 /* Barre latérale */
 .sidebar {
-  width: 220px;
-  background-color: #1a1a1a;
-  color: white;
-  padding: 20px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
   position: fixed;
-  top: 60px;
-  left: -240px; /* cachée par défaut */
+  top: 0;
+  left: -220px; /* cachée par défaut */
+  width: 220px;
   height: 100%;
+  background-color: rgba(50,50,50,0.95);
+  color: #fff;
+  padding-top: 80px;
   transition: left 0.3s;
   z-index: 1000;
 }
-
 .sidebar.show {
   left: 0;
 }
-
 .sidebar nav ul {
   list-style: none;
   padding: 0;
-  width: 100%;
 }
-
 .sidebar nav ul li {
-  margin: 10px 0;
+  margin: 15px 0;
 }
-
 .sidebar nav ul li a {
-  color: white;
+  color: #fff;
   text-decoration: none;
   display: block;
-  padding: 8px 12px;
-  border-radius: 5px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background 0.2s;
 }
-
-.sidebar nav ul li a.active,
-.sidebar nav ul li a:hover {
-  background-color: #4b4b4b;
+.sidebar nav ul li a:hover,
+.sidebar nav ul li a.active {
+  background-color: #0066cc;
 }
 
 /* Contenu principal */
 .content {
-  flex: 1;
-  padding: 80px 20px 20px 20px; /* haut pour laisser place au logo */
-  margin-left: 0; /* espace si sidebar ouverte sera géré par JS */
-  background-color: #f0f0f0;
-  box-sizing: border-box;
+  margin-left: 20px;
+  padding: 20px;
+  transition: margin-left 0.3s;
+}
+
+/* Mode clair */
+body.light-mode {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcrscNc2FDl6ijPDt12YkJiw1ika3elg1WUA&s');
+  background-size: cover;
+  background-position: center;
+  color: #000;
+}
+
+/* Mode sombre */
+body.dark-mode {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3ZDIaUrACmhoYMVFfkzjeqC7xpXxgG_3wBQ&s');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
 }
 
 /* Liens externes */
-.external-links {
-  margin-top: 20px;
-}
-
 .external-links a {
-  display: block;
-  margin: 5px 0;
-  color: #1a73e8;
+  display: inline-block;
+  margin-right: 10px;
+  padding: 6px 12px;
+  background-color: #0078d4;
+  color: #fff;
   text-decoration: none;
+  border-radius: 4px;
 }
-
 .external-links a:hover {
-  text-decoration: underline;
+  background-color: #005fa3;
 }
 
-/* Mode sombre / clair */
-body.dark-mode .content {
-  background-color: #121212;
-  color: white;
+/* Bouton mode sombre */
+button {
+  border: none;
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
 }
-
-body.dark-mode .sidebar {
-  background-color: #0d0d0d;
-}
-
-body.dark-mode .logo-container {
-  background-color: #0d0d0d;
+button:hover {
+  background-color: #222;
 }
