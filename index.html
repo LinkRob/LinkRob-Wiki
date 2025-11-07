@@ -1,58 +1,52 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LinkRob Wiki</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkRob Wiki</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div id="menu-logo">
+  <img src="https://static.wikia.nocookie.net/zeldawikidelinkrob/images/e/e6/Site-logo.png/revision/latest?cb=20250817120015" alt="Logo" id="logo">
+</div>
 
-  <!-- Logo pour ouvrir la sidebar -->
-  <div id="menu-logo">
-    <img src="https://static.wikia.nocookie.net/zeldawikidelinkrob/images/e/e6/Site-logo.png/revision/latest?cb=20250817120015" alt="Logo Wiki" id="logo">
-  </div>
+<div id="sidebar">
+  <div class="sidebar-header">LinkRob Wiki</div>
+  <ul>
+    <li><a href="#" onclick="showPage('accueil')">Accueil</a></li>
+    <li><a href="#" onclick="showPage('test-publications')">Test publications</a></li>
+    <li><a href="#" onclick="showPage('jeux')">Jeux</a></li>
+    <li><a href="#" onclick="showPage('reglement')">Règlement</a></li>
+    <li><a href="#" onclick="showPage('objets')">Objets</a></li>
+    <li><a href="#" onclick="showPage('soluce')">Soluce</a></li>
+  </ul>
+</div>
 
-  <!-- Sidebar -->
-  <div id="sidebar">
-    <div class="sidebar-header">LinkRob Wiki</div>
-    <ul>
-      <li><a href="#" onclick="showPage('accueil')"><img class="icon" src="https://img.icons8.com/ios-filled/50/ffffff/home.png"/> Accueil</a></li>
-      <li><a href="#" onclick="showPage('test-publications')"><img class="icon" src="https://img.icons8.com/ios-filled/50/ffffff/edit.png"/> Test publications</a></li>
-      <li><a href="#" onclick="showPage('jeux')"><img class="icon" src="https://img.icons8.com/ios-filled/50/ffffff/game-controller.png"/> Jeux</a></li>
-      <li><a href="#" onclick="showPage('reglement')"><img class="icon" src="https://img.icons8.com/ios-filled/50/ffffff/lock.png"/> Règlement</a></li>
-      <li><a href="#" onclick="showPage('objets')"><img class="icon" src="https://img.icons8.com/ios-filled/50/ffffff/treasure-chest.png"/> Objets</a></li>
-      <li><a href="#" onclick="showPage('soluce')"><img class="icon" src="https://img.icons8.com/ios-filled/50/ffffff/map.png"/> Soluce</a></li>
-    </ul>
-  </div>
+<div id="top-bar">
+  <input type="text" id="searchInput" placeholder="Rechercher une page...">
+  <button onclick="createPage()">✏️</button>
+  <button onclick="toggleTheme()">🌓</button>
+</div>
 
-  <!-- Top Bar -->
-  <div id="top-bar">
-    <input type="text" id="searchInput" placeholder="Rechercher une page...">
-    <button onclick="createPage()">✏️</button>
-    <button onclick="toggleTheme()">🌓</button>
-  </div>
-
-  <!-- Contenu principal -->
-  <div id="main-content">
-    <div id="dynamic-content">
-      <h2>Bienvenue sur LinkRob Wiki !</h2>
-      <p>Découvrez la saga Zelda !</p>
-      <div>
-        <a href="https://discord.gg/Q6kmbXamN3" target="_blank"><img src="https://img.icons8.com/color/48/000000/discord-logo.png"/> Rejoindre Discord</a>
-        <a href="https://www.youtube.com/channel/UCZu8OUQjwGfIT_ialw_LtsA" target="_blank"><img src="https://img.icons8.com/color/48/000000/youtube-play.png"/> Chaîne YouTube</a>
-      </div>
+<div id="main-content">
+  <div id="dynamic-content">
+    <h2>Bienvenue sur LinkRob Wiki !</h2>
+    <p>Découvrez la saga Zelda !</p>
+    <div class="links">
+      <a href="https://discord.gg/Q6kmbXamN3" target="_blank"><img src="https://img.icons8.com/color/48/000000/discord-logo.png"/> Discord</a>
+      <a href="https://www.youtube.com/channel/UCZu8OUQjwGfIT_ialw_LtsA" target="_blank"><img src="https://img.icons8.com/color/48/000000/youtube-play.png"/> YouTube</a>
     </div>
   </div>
+</div>
 
-  <!-- Éditeur -->
-  <div id="editor" style="display:none;">
-    <input type="text" id="page-title" placeholder="Nom de la page">
-    <textarea id="page-content" placeholder="Écrire ici..."></textarea>
-    <button onclick="savePage()">Sauvegarder</button>
-    <button onclick="closeEditor()">Fermer</button>
-  </div>
+<div id="editor" style="display:none;">
+  <input type="text" id="page-title" placeholder="Nom de la page">
+  <textarea id="page-content" placeholder="Écrire ici..."></textarea>
+  <button onclick="savePage()">Sauvegarder</button>
+  <button onclick="closeEditor()">Fermer</button>
+</div>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
