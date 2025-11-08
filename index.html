@@ -1,56 +1,56 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LinkRob Wiki</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinkRob Wiki - Accueil</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Logo/menu -->
+
+  <!-- Barre supérieure -->
   <header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Triforce.svg"
-         alt="Logo Zelda" id="menu-logo" />
-    <h1>LinkRob Wiki</h1>
-    <div class="header-actions">
-      <input type="text" id="searchBar" placeholder="Rechercher..." />
+    <div class="logo" onclick="toggleSidebar()">
+      <img src="https://static.wikia.nocookie.net/zelda_gamepedia_en/images/8/8d/Triforce_Emblem_Artwork.png"
+           alt="Logo Zelda">
+      <h1>LinkRob Wiki</h1>
+    </div>
+
+    <div class="top-right">
+      <input type="text" id="searchBar" placeholder="Rechercher un article...">
       <button id="createPageBtn" title="Créer un article">✏️</button>
     </div>
   </header>
 
   <!-- Barre latérale -->
-  <nav id="sidebar" class="hidden">
+  <nav id="sidebar">
     <ul>
-      <li><a href="#">Accueil</a></li>
-      <li><a href="#">Test Publications</a></li>
-      <li><a href="#">Jeux</a></li>
-      <li><a href="#">Règlement</a></li>
-      <li><a href="#">Objets</a></li>
-      <li><a href="#">Soluce</a></li>
+      <li><a href="#" onclick="loadPage('accueil')">🏠 Accueil</a></li>
+      <li><a href="#" onclick="loadPage('zelda-eow')">🔮 Zelda: Echoes of Wisdom</a></li>
+      <li><a href="#" onclick="loadPage('jeux')">🎮 Jeux</a></li>
+      <li><a href="#" onclick="loadPage('objets')">🗡️ Objets</a></li>
+      <li><a href="#" onclick="loadPage('soluce')">📜 Soluce</a></li>
+      <li><a href="#" onclick="loadPage('reglement')">⚖️ Règlement</a></li>
+      <li><a href="#" onclick="loadPage('articles-recents')">🕓 Articles récents</a></li>
     </ul>
   </nav>
 
   <!-- Contenu principal -->
-  <main>
-    <section class="welcome">
-      <h2>Bienvenue sur le LinkRob Wiki !</h2>
-      <p>Votre encyclopédie collaborative dédiée à l’univers de <strong>The Legend of Zelda</strong>.</p>
-      <div class="social-links">
-        <a href="https://discord.gg/Q6kmbXamN3" target="_blank">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Discord_logo.svg" alt="Discord" class="icon" />
-        </a>
-        <a href="https://www.youtube.com/channel/UCZu8OUQjwGfIT_ialw_LtsA" target="_blank">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube" class="icon" />
-        </a>
-      </div>
-    </section>
+  <main id="content">
+    <h2>Bienvenue sur le LinkRob Wiki</h2>
+    <p>Un sanctuaire dédié à la légende de Zelda, créé par des fans pour des fans.</p>
 
-    <section id="editor" class="hidden">
-      <h3>Nouvel article</h3>
-      <input type="text" id="pageTitle" placeholder="Titre de la page" />
-      <textarea id="pageContent" placeholder="Écrivez ici votre contenu..."></textarea>
-      <button id="savePageBtn">💾 Sauvegarder</button>
-    </section>
+    <div class="links">
+      <a href="https://discord.gg/Q6kmbXamN3" target="_blank" class="social-link">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord">
+        Rejoindre le serveur Discord
+      </a>
+
+      <a href="https://www.youtube.com/channel/UCZu8OUQjwGfIT_ialw_LtsA" target="_blank" class="social-link">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+        Voir la chaîne YouTube
+      </a>
+    </div>
   </main>
 
   <script src="script.js"></script>
