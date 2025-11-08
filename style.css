@@ -7,13 +7,13 @@ body {
 
 /* Thèmes clair et sombre */
 body.theme-light {
-  background: url('images/fond-clair.jpg') no-repeat center center fixed;
+  background: url('images/fond-clair-simule.jpg') no-repeat center center fixed;
   background-size: cover;
   color: #111;
 }
 
 body.theme-dark {
-  background: url('images/fond-sombre.jpg') no-repeat center center fixed;
+  background: url('images/fond-sombre-simule.jpg') no-repeat center center fixed;
   background-size: cover;
   color: #fff;
 }
