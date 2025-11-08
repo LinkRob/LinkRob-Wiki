@@ -1,66 +1,55 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LinkRob Wiki</title>
-  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <header>
-    <div class="logo" onclick="toggleSidebar()">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Triforce.svg" alt="Logo" id="logoImg">
-      <h1>LinkRob Wiki</h1>
-    </div>
+<body class="light-theme">
 
-    <div class="header-actions">
-      <input id="searchBar" placeholder="Rechercher une page..." />
-      <button id="createBtn" title="Créer une page">✏️</button>
-    </div>
-  </header>
-
-  <nav id="sidebar" class="hidden">
+  <!-- Barre latérale -->
+  <div id="sidebar" class="sidebar-closed">
     <div class="sidebar-header">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Triforce.svg" alt="Logo" class="sidebar-logo">
-      <h2>Navigation</h2>
+      <img src="images/logo-sidebar.png" alt="Logo Zelda" id="sidebar-logo">
     </div>
-    <ul id="menuList">
-      <!-- menu items populated by script -->
-    </ul>
-    <div class="recent-block">
-      <h3>Articles récents</h3>
-      <ul id="recentList"></ul>
+    <nav>
+      <ul>
+        <li><a href="#" data-page="accueil">Accueil</a></li>
+        <li><a href="#" data-page="zelda-eow">Zelda EOW</a></li>
+        <li><a href="#" data-page="articles-recents">Articles récents</a></li>
+        <li><a href="#" data-page="jeux">Jeux</a></li>
+        <li><a href="#" data-page="reglement">Règlement</a></li>
+        <li><a href="#" data-page="objets">Objets</a></li>
+        <li><a href="#" data-page="soluce">Soluce</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Contenu principal -->
+  <div id="main">
+    <header>
+      <div id="top-bar">
+        <input type="text" id="search-bar" placeholder="Saisissez votre recherche">
+        <button id="new-page-btn" title="Créer une nouvelle page">
+          <img src="images/crayon.png" alt="Créer page">
+        </button>
+      </div>
+    </header>
+
+    <div id="content">
+      <h1>Bienvenue sur LinkRob Wiki</h1>
+      <div class="links-home">
+        <a href="https://discord.gg/Q6kmbXamN3" target="_blank">
+          <img src="images/discord-icon.png" alt="Discord"> Rejoignez le serveur
+        </a>
+        <a href="https://www.youtube.com/channel/UCZu8OUQjwGfIT_ialw_LtsA" target="_blank">
+          <img src="images/youtube-icon.png" alt="YouTube"> Chaîne YouTube
+        </a>
+      </div>
     </div>
-  </nav>
+  </div>
 
-  <main id="main">
-    <section id="home">
-      <div class="welcome">
-        <h2>Bienvenue sur LinkRob Wiki</h2>
-        <p>Le wiki Zelda indépendant par la communauté.</p>
-        <div class="social">
-          <a href="https://discord.gg/Q6kmbXamN3" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="Discord"></a>
-          <a href="https://www.youtube.com/channel/UCZu8OUQjwGfIT_ialw_LtsA" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube"></a>
-        </div>
-      </div>
-    </section>
-
-    <section id="pageView" class="hidden">
-      <article id="pageArticle"></article>
-    </section>
-
-    <section id="editor" class="hidden">
-      <h3>Créer / Modifier une page</h3>
-      <input id="editTitle" placeholder="Titre (ex: Zelda: Echoes of Wisdom)" />
-      <textarea id="editContent" rows="12" placeholder="Contenu Markdown ou texte..."></textarea>
-      <div class="editor-actions">
-        <button id="saveBtn">💾 Sauvegarder (commit dans GitHub via UI)</button>
-        <button id="cancelEdit">Annuler</button>
-      </div>
-      <p class="note">Note : Pour que la page soit accessible publiquement et pour que le RSS se mette à jour automatiquement, <strong>ajoute/édite la page via l'interface GitHub</strong> (voir guide ci-dessous). Cette UI locale te permet de prévisualiser et préparer le contenu avant de le coller sur GitHub.</p>
-    </section>
-  </main>
-
-  <script src="/script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
