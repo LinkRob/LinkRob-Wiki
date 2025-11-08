@@ -6,13 +6,13 @@ body {
 }
 
 /* Thèmes clair et sombre */
-body.light-theme {
+body.theme-light {
   background: url('images/fond-clair.jpg') no-repeat center center fixed;
   background-size: cover;
-  color: #000;
+  color: #111;
 }
 
-body.dark-theme {
+body.theme-dark {
   background: url('images/fond-sombre.jpg') no-repeat center center fixed;
   background-size: cover;
   color: #fff;
@@ -25,7 +25,7 @@ body.dark-theme {
   top: 0;
   width: 250px;
   height: 100%;
-  background: rgba(0,0,0,0.8);
+  background: rgba(20,20,20,0.85);
   color: #fff;
   overflow-y: auto;
   transition: transform 0.3s;
@@ -43,6 +43,7 @@ body.dark-theme {
 
 #sidebar-logo {
   width: 100px;
+  cursor: pointer;
 }
 
 #sidebar nav ul {
@@ -108,4 +109,13 @@ body.dark-theme {
 .links-home img {
   width: 32px;
   vertical-align: middle;
+}
+
+/* Exemple de page */
+.example-box {
+  border: 2px solid #ffcc00;
+  background: rgba(255,255,255,0.8);
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
 }
