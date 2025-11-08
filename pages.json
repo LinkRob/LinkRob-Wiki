@@ -1,0 +1,16 @@
+{
+  "pages": [
+    {
+      "title": "Accueil",
+      "slug": "accueil",
+      "content": "<p>Bienvenue sur le LinkRob Wiki — la base des fans de Zelda.</p>",
+      "pubDate": "2025-11-08T18:00:00Z"
+    },
+    {
+      "title": "Zelda: Echoes of Wisdom",
+      "slug": "zelda-eow",
+      "content": "<p>Première page consacrée à Echoes of Wisdom.</p>",
+      "pubDate": "2025-11-08T18:15:00Z"
+    }
+  ]
+}
