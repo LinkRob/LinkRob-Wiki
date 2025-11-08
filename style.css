@@ -1,77 +1,111 @@
-:root{
-  --gold: #ffd24a;
-  --bg-dark: #070707;
-  --panel: rgba(0,0,0,0.6);
+/* Reset et style global */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  transition: background 0.3s;
 }
 
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Inter, "Segoe UI", Arial, sans-serif;
-  color:#fff;
-  background: linear-gradient(180deg,#0b1221 0%, #0b1b2b 100%);
-  min-height:100vh;
+/* Thèmes clair et sombre */
+body.light-theme {
+  background: url('images/fond-clair.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #000;
 }
 
-/* Header */
-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:12px 20px;
-  background:rgba(0,0,0,0.6);
-  border-bottom:3px solid var(--gold);
-  position:fixed;
-  width:100%;
-  top:0;
-  z-index:100;
+body.dark-theme {
+  background: url('images/fond-sombre.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
 }
-.logo{ display:flex; align-items:center; gap:12px; cursor:pointer; }
-.logo img{ width:48px; filter: drop-shadow(0 0 6px rgba(255,210,74,0.4)); }
-.header-actions{ display:flex; gap:10px; align-items:center; }
-#searchBar{ padding:8px; border-radius:8px; border:none; width:240px; }
 
-/* Sidebar */
-#sidebar{
-  position:fixed;
-  left:-280px;
-  top:0;
-  width:260px;
-  height:100%;
-  padding-top:84px;
-  background:linear-gradient(180deg, rgba(2,6,23,0.95), rgba(0,0,0,0.95));
-  border-right:3px solid var(--gold);
-  transition:left .28s ease;
-  overflow:auto;
-  z-index:90;
+/* Barre latérale */
+#sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  overflow-y: auto;
+  transition: transform 0.3s;
+  z-index: 1000;
 }
-#sidebar.visible{ left:0; }
-.sidebar-header{ text-align:center; padding:12px 8px; border-bottom:1px solid rgba(255,255,255,0.04); }
-.sidebar-logo{ width:80px; display:block; margin:auto 0 8px; filter: drop-shadow(0 0 6px rgba(255,210,74,0.25)); }
-#menuList{ list-style:none; padding:8px 0; margin:0; }
-#menuList li{ padding:12px 16px; border-radius:8px; cursor:pointer; font-weight:600; color:#fff; margin:6px 8px; }
-#menuList li:hover{ background:rgba(255,210,74,0.06); color:var(--gold); }
 
-/* Main */
-main{ padding:120px 24px 60px 24px; max-width:1100px; margin:auto; }
-.welcome{ background:var(--panel); padding:28px; border-radius:12px; border:2px solid rgba(255,210,74,0.12); box-shadow:0 6px 30px rgba(0,0,0,0.5); }
-.welcome h2{ margin-top:0; color:var(--gold); }
+.sidebar-closed {
+  transform: translateX(-100%);
+}
 
-/* Social icons */
-.social img{ width:36px; filter: invert(100%) sepia(0%) saturate(0%); }
+#sidebar .sidebar-header {
+  text-align: center;
+  padding: 20px;
+}
 
-/* Page view */
-#pageArticle{ text-align:left; margin-top:10px; background:rgba(0,0,0,0.55); padding:18px; border-radius:10px; border:1px solid rgba(255,255,255,0.05); }
+#sidebar-logo {
+  width: 100px;
+}
 
-/* Editor */
-#editor{ background:rgba(0,0,0,0.6); padding:18px; border-radius:10px; border:2px solid rgba(255,210,74,0.08); margin-top:20px; }
-#editTitle, #editContent{ width:100%; background:rgba(255,255,255,0.03); color:inherit; border:1px solid rgba(255,255,255,0.04); padding:10px; border-radius:8px; margin:8px 0; }
-.editor-actions{ display:flex; gap:12px; margin-top:8px; }
-button{ padding:10px 14px; border-radius:8px; border:none; cursor:pointer; background:var(--gold); color:#000; font-weight:700; }
+#sidebar nav ul {
+  list-style: none;
+  padding: 0;
+}
 
-/* Responsive */
-@media (max-width:780px){
-  #searchBar{ width:140px; }
-  header{ padding:8px 12px; }
-  main{ padding:110px 12px; }
+#sidebar nav ul li a {
+  display: block;
+  padding: 12px 20px;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+#sidebar nav ul li a:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Contenu principal */
+#main {
+  margin-left: 0;
+  padding: 20px;
+  transition: margin-left 0.3s;
+}
+
+#main.shifted {
+  margin-left: 250px;
+}
+
+/* Top bar */
+#top-bar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#search-bar {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 250px;
+}
+
+#new-page-btn img {
+  width: 24px;
+  cursor: pointer;
+}
+
+/* Liens accueil */
+.links-home a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  margin: 10px;
+  text-decoration: none;
+  color: #ffcc00;
+}
+
+.links-home img {
+  width: 32px;
+  vertical-align: middle;
 }
