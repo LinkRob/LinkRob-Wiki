@@ -2,17 +2,18 @@ body {
   margin: 0;
   font-family: 'Trebuchet MS', sans-serif;
   color: #fff;
-  background: url('https://images.alphacoders.com/132/1324847.png') center/cover fixed;
-  transition: background 0.5s;
+  background: url('https://images8.alphacoders.com/133/1338990.png') center/cover fixed;
+  transition: background 0.5s ease;
 }
 
-/* Barre du haut */
+/* Barre supérieure */
 header {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.85);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+  border-bottom: 2px solid gold;
 }
 
 header .logo {
@@ -24,6 +25,11 @@ header .logo {
 header .logo img {
   width: 50px;
   margin-right: 10px;
+}
+
+header h1 {
+  font-size: 1.5em;
+  color: gold;
 }
 
 header .top-right {
@@ -45,22 +51,36 @@ header .top-right {
   padding: 8px 10px;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 18px;
 }
 
 /* Barre latérale */
 #sidebar {
   position: fixed;
-  left: -260px;
+  left: -270px;
   top: 0;
   width: 250px;
   height: 100%;
-  background: rgba(20, 20, 20, 0.95);
-  padding-top: 70px;
+  background: rgba(15, 15, 15, 0.97);
+  color: #fff;
+  overflow-y: auto;
   transition: left 0.3s ease;
+  border-right: 2px solid gold;
 }
 
 #sidebar.active {
   left: 0;
+}
+
+.sidebar-header {
+  text-align: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #333;
+}
+
+.sidebar-logo {
+  width: 80px;
+  margin-bottom: 10px;
 }
 
 #sidebar ul {
@@ -77,6 +97,12 @@ header .top-right {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
+  display: block;
+  transition: 0.2s;
+}
+
+#sidebar ul li a:hover {
+  background: rgba(255, 215, 0, 0.2);
 }
 
 /* Zone principale */
@@ -89,7 +115,7 @@ main {
 .links {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 40px;
   margin-top: 40px;
 }
 
@@ -104,14 +130,16 @@ main {
   padding: 20px;
   border-radius: 15px;
   width: 200px;
-  transition: transform 0.2s;
+  border: 1px solid gold;
+  transition: transform 0.3s;
 }
 
 .social-link img {
-  width: 50px;
+  width: 40px;
   margin-bottom: 10px;
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(93deg) brightness(107%) contrast(101%);
 }
 
 .social-link:hover {
-  transform: scale(1.05);
+  transform: scale(1.07);
 }
