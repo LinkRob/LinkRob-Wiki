@@ -15,7 +15,7 @@ function loadPage(page) {
     case "zelda-eow":
       content.innerHTML = `
         <h2>Zelda: Echoes of Wisdom</h2>
-        <p>Dernier chapitre de la saga, centré sur la princesse Zelda elle-même !</p>`;
+        <p>Découvrez les secrets du nouveau jeu de la saga, centré sur Zelda elle-même.</p>`;
       break;
     case "articles-recents":
       content.innerHTML = `
@@ -28,31 +28,9 @@ function loadPage(page) {
   }
 }
 
-// Simuler la liste d’articles récents
+// Articles récents (simulés)
 function loadRecentArticles() {
-  const articles = ["Zelda EOW : premières impressions", "Les objets mythiques", "Guide des sanctuaires"];
+  const articles = ["Les pouvoirs de Zelda EOW", "Les armes légendaires", "Chronologie d’Hyrule"];
   const list = document.getElementById("recent-list");
   list.innerHTML = articles.map(a => `<li>${a}</li>`).join('');
-}
-
-// Barre de recherche
-document.getElementById("searchBar").addEventListener("keypress", function(e) {
-  if (e.key === "Enter") {
-    const query = this.value.toLowerCase();
-    if (query.includes("zelda")) {
-      loadPage("zelda-eow");
-    } else {
-      document.getElementById("content").innerHTML = `
-        <h2>Créer un nouvel article : ${query}</h2>
-        <textarea id="newArticle" placeholder="Écris ici ton texte..." rows="10" cols="80"></textarea>
-        <br><button onclick="saveArticle('${query}')">💾 Sauvegarder</button>`;
-    }
-  }
-});
-
-// Sauvegarder (simulation locale)
-function saveArticle(title) {
-  const content = document.getElementById("newArticle").value;
-  localStorage.setItem(title, content);
-  alert("Article sauvegardé !");
 }
