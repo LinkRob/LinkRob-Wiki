@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>LinkRob Wiki – Actualités</title>
+    <link>https://linkrob-wiki.vercel.app/</link>
+    <description>Les dernières pages et mises à jour du LinkRob Wiki</description>
+    <language>fr</language>
+    <item>
+      <title>Bienvenue sur LinkRob Wiki</title>
+      <link>https://linkrob-wiki.vercel.app/</link>
+      <description>Page d'accueil</description>
+      <pubDate>Mon, 04 Nov 2025 12:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
