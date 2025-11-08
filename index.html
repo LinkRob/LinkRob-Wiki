@@ -1,62 +1,66 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>LinkRob Wiki</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-
-  <!-- Barre supérieure -->
   <header>
     <div class="logo" onclick="toggleSidebar()">
-      <img src="https://static.wikia.nocookie.net/zelda_gamepedia_en/images/8/8d/Triforce_Emblem_Artwork.png"
-           alt="Triforce">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Triforce.svg" alt="Logo" id="logoImg">
       <h1>LinkRob Wiki</h1>
     </div>
 
-    <div class="top-right">
-      <input type="text" id="searchBar" placeholder="Rechercher un article...">
-      <button id="createPageBtn" title="Créer un article">✏️</button>
+    <div class="header-actions">
+      <input id="searchBar" placeholder="Rechercher une page..." />
+      <button id="createBtn" title="Créer une page">✏️</button>
     </div>
   </header>
 
-  <!-- Barre latérale -->
-  <nav id="sidebar">
+  <nav id="sidebar" class="hidden">
     <div class="sidebar-header">
-      <img src="https://upload.wikimedia.org/wikipedia/en/0/0a/Triforce.svg" alt="Logo Zelda" class="sidebar-logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Triforce.svg" alt="Logo" class="sidebar-logo">
       <h2>Navigation</h2>
     </div>
-    <ul>
-      <li><a href="#" onclick="loadPage('accueil')">🏠 Accueil</a></li>
-      <li><a href="#" onclick="loadPage('zelda-eow')">🔮 Zelda: Echoes of Wisdom</a></li>
-      <li><a href="#" onclick="loadPage('jeux')">🎮 Jeux</a></li>
-      <li><a href="#" onclick="loadPage('objets')">🗡️ Objets</a></li>
-      <li><a href="#" onclick="loadPage('soluce')">📜 Soluce</a></li>
-      <li><a href="#" onclick="loadPage('reglement')">⚖️ Règlement</a></li>
-      <li><a href="#" onclick="loadPage('articles-recents')">🕓 Articles récents</a></li>
+    <ul id="menuList">
+      <!-- menu items populated by script -->
     </ul>
+    <div class="recent-block">
+      <h3>Articles récents</h3>
+      <ul id="recentList"></ul>
+    </div>
   </nav>
 
-  <!-- Contenu principal -->
-  <main id="content">
-    <h2>Bienvenue sur le LinkRob Wiki</h2>
-    <p>Le sanctuaire des fans de la Légende de Zelda. Explore, apprends et partage tes connaissances sur Hyrule !</p>
+  <main id="main">
+    <section id="home">
+      <div class="welcome">
+        <h2>Bienvenue sur LinkRob Wiki</h2>
+        <p>Le wiki Zelda indépendant par la communauté.</p>
+        <div class="social">
+          <a href="https://discord.gg/Q6kmbXamN3" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="Discord"></a>
+          <a href="https://www.youtube.com/channel/UCZu8OUQjwGfIT_ialw_LtsA" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube"></a>
+        </div>
+      </div>
+    </section>
 
-    <div class="links">
-      <a href="https://discord.gg/Q6kmbXamN3" target="_blank" class="social-link">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="Discord">
-        Rejoindre le serveur
-      </a>
+    <section id="pageView" class="hidden">
+      <article id="pageArticle"></article>
+    </section>
 
-      <a href="https://www.youtube.com/channel/UCZu8OUQjwGfIT_ialw_LtsA" target="_blank" class="social-link">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube">
-        Voir la chaîne
-      </a>
-    </div>
+    <section id="editor" class="hidden">
+      <h3>Créer / Modifier une page</h3>
+      <input id="editTitle" placeholder="Titre (ex: Zelda: Echoes of Wisdom)" />
+      <textarea id="editContent" rows="12" placeholder="Contenu Markdown ou texte..."></textarea>
+      <div class="editor-actions">
+        <button id="saveBtn">💾 Sauvegarder (commit dans GitHub via UI)</button>
+        <button id="cancelEdit">Annuler</button>
+      </div>
+      <p class="note">Note : Pour que la page soit accessible publiquement et pour que le RSS se mette à jour automatiquement, <strong>ajoute/édite la page via l'interface GitHub</strong> (voir guide ci-dessous). Cette UI locale te permet de prévisualiser et préparer le contenu avant de le coller sur GitHub.</p>
+    </section>
   </main>
 
-  <script src="script.js"></script>
+  <script src="/script.js"></script>
 </body>
 </html>
