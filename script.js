@@ -1,43 +1,58 @@
 // Ouvrir / fermer la barre latérale
-const menuLogo = document.getElementById('menu-logo');
-const sidebar = document.getElementById('sidebar');
-menuLogo.addEventListener('click', () => {
-  sidebar.classList.toggle('visible');
-});
+function toggleSidebar() {
+  document.getElementById("sidebar").classList.toggle("active");
+}
 
-// Basculer le thème clair/sombre
-document.addEventListener('keydown', (e) => {
-  if (e.key === 't') {
-    document.body.classList.toggle('light');
+// Charger une page interne
+function loadPage(page) {
+  const content = document.getElementById("content");
+  switch (page) {
+    case "accueil":
+      content.innerHTML = `
+        <h2>Accueil</h2>
+        <p>Bienvenue dans le sanctuaire des aventuriers d’Hyrule !</p>`;
+      break;
+    case "zelda-eow":
+      content.innerHTML = `
+        <h2>Zelda: Echoes of Wisdom</h2>
+        <p>Dernier chapitre de la saga, centré sur la princesse Zelda elle-même !</p>`;
+      break;
+    case "articles-recents":
+      content.innerHTML = `
+        <h2>Articles récents</h2>
+        <ul id="recent-list"><li>Chargement...</li></ul>`;
+      loadRecentArticles();
+      break;
+    default:
+      content.innerHTML = `<h2>${page}</h2><p>Contenu à venir...</p>`;
+  }
+}
+
+// Simuler la liste d’articles récents
+function loadRecentArticles() {
+  const articles = ["Zelda EOW : premières impressions", "Les objets mythiques", "Guide des sanctuaires"];
+  const list = document.getElementById("recent-list");
+  list.innerHTML = articles.map(a => `<li>${a}</li>`).join('');
+}
+
+// Barre de recherche
+document.getElementById("searchBar").addEventListener("keypress", function(e) {
+  if (e.key === "Enter") {
+    const query = this.value.toLowerCase();
+    if (query.includes("zelda")) {
+      loadPage("zelda-eow");
+    } else {
+      document.getElementById("content").innerHTML = `
+        <h2>Créer un nouvel article : ${query}</h2>
+        <textarea id="newArticle" placeholder="Écris ici ton texte..." rows="10" cols="80"></textarea>
+        <br><button onclick="saveArticle('${query}')">💾 Sauvegarder</button>`;
+    }
   }
 });
 
-// Recherche (simulation)
-const searchBar = document.getElementById('searchBar');
-searchBar.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') {
-    alert(`Recherche pour : ${searchBar.value}`);
-  }
-});
-
-// Création d’article
-const createBtn = document.getElementById('createPageBtn');
-const editor = document.getElementById('editor');
-const saveBtn = document.getElementById('savePageBtn');
-createBtn.addEventListener('click', () => {
-  editor.classList.remove('hidden');
-});
-
-saveBtn.addEventListener('click', () => {
-  const title = document.getElementById('pageTitle').value;
-  const content = document.getElementById('pageContent').value;
-  if (title && content) {
-    localStorage.setItem(title, content);
-    alert(`Page "${title}" sauvegardée !`);
-    document.getElementById('pageTitle').value = '';
-    document.getElementById('pageContent').value = '';
-    editor.classList.add('hidden');
-  } else {
-    alert('Veuillez remplir tous les champs.');
-  }
-});
+// Sauvegarder (simulation locale)
+function saveArticle(title) {
+  const content = document.getElementById("newArticle").value;
+  localStorage.setItem(title, content);
+  alert("Article sauvegardé !");
+}
