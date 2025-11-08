@@ -1,16 +1,28 @@
 {
   "pages": [
     {
-      "title": "Accueil",
-      "slug": "accueil",
-      "content": "<p>Bienvenue sur le LinkRob Wiki — la base des fans de Zelda.</p>",
-      "pubDate": "2025-11-08T18:00:00Z"
+      "title": "Zelda Ocarina of Time",
+      "slug": "zelda-ocarina-of-time",
+      "content": "<p>Découvrez toutes les quêtes, objets et secrets du légendaire Zelda Ocarina of Time !</p>",
+      "pubDate": "2025-11-08T10:00:00Z"
     },
     {
-      "title": "Zelda: Echoes of Wisdom",
-      "slug": "zelda-eow",
-      "content": "<p>Première page consacrée à Echoes of Wisdom.</p>",
-      "pubDate": "2025-11-08T18:15:00Z"
+      "title": "Zelda Breath of the Wild",
+      "slug": "zelda-breath-of-the-wild",
+      "content": "<p>Le guide ultime de Zelda Breath of the Wild : astuces, sanctuaires et stratégies.</p>",
+      "pubDate": "2025-11-08T11:00:00Z"
+    },
+    {
+      "title": "Zelda Twilight Princess",
+      "slug": "zelda-twilight-princess",
+      "content": "<p>Explorez Twilight Princess et maîtrisez les pouvoirs de Link dans ce monde mystérieux.</p>",
+      "pubDate": "2025-11-08T12:00:00Z"
+    },
+    {
+      "title": "Zelda Echoes of Wisdom",
+      "slug": "zelda-echoes-of-wisdom",
+      "content": "<p>Tout sur le nouveau Zelda Echoes of Wisdom ! Découvrez les secrets et guides des fans.</p>",
+      "pubDate": "2025-11-08T13:00:00Z"
     }
   ]
 }
