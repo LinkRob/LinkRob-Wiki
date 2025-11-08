@@ -2,24 +2,31 @@ name: Generate RSS
 
 on:
   push:
-    branches: [ main ]
-  workflow_dispatch:
+    branches: [main]
+    paths:
+      - 'pages.json'
+      - '.github/scripts/generate-rss.js'
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - name: Setup Node.js
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
-      - name: Generate rss.xml
-        run: node ./.github/scripts/generate-rss.js
-      - name: Commit rss.xml
+          node-version: 20
+
+      - name: Generate RSS
+        run: node .github/scripts/generate-rss.js
+
+      - name: Commit and push RSS
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "actions@github.com"
+          git config --local user.name "github-actions"
+          git config --local user.email "github-actions@github.com"
           git add rss.xml
-          git commit -m "CI: regenerate rss.xml" || echo "no changes"
+          git commit -m "📰 Mise à jour automatique du flux RSS" || echo "Aucune modification à valider"
           git push
