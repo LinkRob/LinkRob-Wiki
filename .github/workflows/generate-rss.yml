@@ -1,0 +1,25 @@
+name: Generate RSS
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Generate rss.xml
+        run: node ./.github/scripts/generate-rss.js
+      - name: Commit rss.xml
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "actions@github.com"
+          git add rss.xml
+          git commit -m "CI: regenerate rss.xml" || echo "no changes"
+          git push
