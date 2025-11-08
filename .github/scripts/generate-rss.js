@@ -1,43 +1,36 @@
-const fs = require('fs');
-const path = require('path');
+// .github/scripts/generate-rss.js
+const fs = require("fs");
 
-const pagesPath = path.join(process.cwd(), 'pages.json');
-const outPath = path.join(process.cwd(), 'rss.xml');
+const siteUrl = "https://linkrob-wiki.vercel.app";
+const dataFile = "pages.json";
+const outputFile = "rss.xml";
 
-if(!fs.existsSync(pagesPath)){
-  console.error('pages.json introuvable');
+// Vérifie que pages.json existe
+if (!fs.existsSync(dataFile)) {
+  console.error(`❌ Fichier ${dataFile} introuvable`);
   process.exit(1);
 }
 
-const data = JSON.parse(fs.readFileSync(pagesPath,'utf8'));
-const pages = data.pages || [];
+const jsonData = JSON.parse(fs.readFileSync(dataFile, "utf8"));
+const pages = jsonData.pages || [];
 
-function fmtDate(d){
-  return new Date(d).toUTCString();
-}
+let rss = `<?xml version="1.0" encoding="UTF-8"?>\n`;
+rss += `<rss version="2.0">\n<channel>\n`;
+rss += `<title>LinkRob Wiki – Actualités</title>\n`;
+rss += `<link>${siteUrl}</link>\n`;
+rss += `<description>Les dernières pages et mises à jour du LinkRob Wiki</description>\n`;
+rss += `<language>fr</language>\n`;
 
-let items = pages.slice().sort((a,b)=> new Date(b.pubDate) - new Date(a.pubDate)).map(p=>{
-  const link = `https://linkrob-wiki.vercel.app/#${encodeURIComponent(p.slug)}`;
-  const title = escapeXml(p.title);
-  const desc = escapeXml(stripHtml(p.content).slice(0,300));
-  const pubDate = fmtDate(p.pubDate || new Date());
-  return `<item><title>${title}</title><link>${link}</link><description>${desc}</description><pubDate>${pubDate}</pubDate></item>`;
-}).join('\n');
+pages.forEach((page) => {
+  rss += `<item>\n`;
+  rss += `<title>${page.title}</title>\n`;
+  rss += `<link>${siteUrl}/#${page.slug}</link>\n`;
+  rss += `<description>${page.content.replace(/<[^>]*>/g, "")}</description>\n`;
+  rss += `<pubDate>${new Date(page.pubDate).toUTCString()}</pubDate>\n`;
+  rss += `</item>\n`;
+});
 
-const rss = `<?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0">
-  <channel>
-    <title>LinkRob Wiki – Actualités</title>
-    <link>https://linkrob-wiki.vercel.app/</link>
-    <description>Les dernières pages et mises à jour du LinkRob Wiki</description>
-    <language>fr</language>
-    ${items}
-  </channel>
-</rss>
-`;
+rss += `</channel>\n</rss>\n`;
 
-fs.writeFileSync(outPath, rss, 'utf8');
-console.log('rss.xml généré avec', pages.length, 'articles.');
-
-function stripHtml(html){ return html.replace(/<[^>]*>/g,''); }
-function escapeXml(s){ return s.replace(/[<>&'"]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;',"'":'&apos;','"':'&quot;'}[c])); }
+fs.writeFileSync(outputFile, rss, "utf8");
+console.log("✅ Flux RSS généré avec succès :", outputFile);
