@@ -8,48 +8,42 @@ sidebarLogo.addEventListener('click', () => {
   main.classList.toggle('shifted');
 });
 
-// Charger les pages depuis pages.json dynamiquement
+// Charger les pages depuis pages.json
 async function chargerDonnees() {
-  const response = await fetch('pages.json');
-  const data = await response.json();
-  const menuUl = document.querySelector('#sidebar nav ul');
-  const contentArea = document.getElementById('content');
+  try {
+    const response = await fetch('pages.json');
+    if (!response.ok) throw new Error("Erreur de chargement du fichier JSON");
+    const data = await response.json();
+    
+    const menuUl = document.querySelector('#sidebar nav ul');
+    const contentArea = document.getElementById('content');
 
-  // Remplir le menu
-  menuUl.innerHTML = '<li><a href="#" data-page="accueil">Accueil</a></li>';
-  data.pages.forEach(page => {
-    menuUl.innerHTML += `<li><a href="#" data-page="${page.slug}">${page.title}</a></li>`;
-  });
+    // Générer le menu
+    menuUl.innerHTML = '<li><a href="#" id="home-link">Accueil</a></li>';
+    data.pages.forEach(page => {
+      const li = document.createElement('li');
+      li.innerHTML = `<a href="#" data-slug="${page.slug}">${page.title}</a>`;
+      menuUl.appendChild(li);
+    });
 
-  // Gestion des clics sur le menu
-  menuUl.addEventListener('click', (e) => {
-    if(e.target.tagName === 'A') {
-      const slug = e.target.getAttribute('data-page');
-      const page = data.pages.find(p => p.slug === slug);
-      if(page) {
-        contentArea.innerHTML = `<h1>${page.title}</h1><div>${page.content}</div>`;
-      } else if(slug === 'accueil') {
-        location.reload(); // Retour à l'accueil
-      }
-    }
-  });
+    // Événements du menu
+    document.getElementById('home-link').addEventListener('click', () => location.reload());
+    
+    document.querySelectorAll('#sidebar nav ul a[data-slug]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const slug = e.target.getAttribute('data-slug');
+        const page = data.pages.find(p => p.slug === slug);
+        if(page) {
+          contentArea.innerHTML = `<h1>${page.title}</h1><div>${page.content}</div>`;
+        }
+      });
+    });
 
-  // Recherche en temps réel
-  const searchBar = document.getElementById('search-bar');
-  searchBar.addEventListener('input', () => {
-    const query = searchBar.value.toLowerCase();
-    if (query.length < 2) return;
-    const resultats = data.pages.filter(p => p.title.toLowerCase().includes(query) || p.content.toLowerCase().includes(query));
-    if(resultats.length > 0) {
-      contentArea.innerHTML = `<h2>Résultats pour "${query}" :</h2>` + resultats.map(p => `<h3>${p.title}</h3>${p.content}`).join('<hr>');
-    }
-  });
-}
-
-// Activer le mode nuit selon l'heure
-const heure = new Date().getHours();
-if (heure > 19 || heure < 7) {
-  document.body.classList.replace('theme-light', 'theme-dark');
+  } catch (erreur) {
+    console.error("Problème détecté :", erreur);
+    document.getElementById('content').innerHTML = "<h1>Erreur</h1><p>Impossible de charger le wiki. Vérifie ton fichier pages.json.</p>";
+  }
 }
 
 chargerDonnees();
